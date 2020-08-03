@@ -126,7 +126,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("INSERT into planes (desc_materia,hs_semanales,hs_totales,id_plan) VALUES(@desc,@hs_sem,@hs_totales,@id_plan) Select @@identity", sqlConn);
+                SqlCommand cmdSave = new SqlCommand("INSERT into materias (desc_materia,hs_semanales,hs_totales,id_plan) VALUES(@desc,@hs_sem,@hs_totales,@id_plan) Select @@identity", sqlConn);
 
                 cmdSave.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = materia.Descripcion;
                 cmdSave.Parameters.Add("@hs_sem", SqlDbType.Int).Value = materia.HSSemanales;

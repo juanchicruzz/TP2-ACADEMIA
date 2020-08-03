@@ -26,12 +26,7 @@ namespace UI.Desktop
             
             DataTable items = new DataTable();
             using (var reader = ObjectReader.Create(especialidades)) { items.Load(reader); }
-                /*foreach (Especialidad e in especialidades)
-                {
-
-                    items[cont] = e.Descripcion;
-                    cont++;
-                }*/
+                
                 return items;
         }
         public PlanDesktop(ModoForm modo) : this()

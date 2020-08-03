@@ -35,23 +35,43 @@ namespace UI.Desktop
             List<Plan> planes = p.GetAll();
             this.cbPlanes.DataSource = enumerarPlan(planes);
             this.cbPlanes.SelectedIndex = 0;
+            this.btnAceptar.Text = "Guardar";
 
         }
 
-        public MateriaDesktop(int ID, ModoForm modo)
+        public MateriaDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
             MateriaLogic m = new MateriaLogic();
             materiaActual = m.GetOne(ID);
+            MapearDeDatos();
+            switch (Modo)
+            {
+
+                case ModoForm.Alta:
+                    this.btnAceptar.Text = "Guardar";
+                    break;
+                case ModoForm.Modificacion:
+                    this.btnAceptar.Text = "Guardar";
+                    break;
+                case ModoForm.Baja:
+                    this.btnAceptar.Text = "Eliminar";
+                    break;
+                case ModoForm.Consulta:
+                    this.btnAceptar.Text = "Aceptar";
+                    break;
+
+            }
 
         }
 
         public virtual void MapearDeDatos()
         {
+            
             PlanLogic p = new PlanLogic();
             List<Plan> planes = p.GetAll();
             Plan plan = p.GetOne(materiaActual.IDPlan);
-            this.cbPlanes.DataSource = enumerarPlan(planes);
+            this.cbPlanes.DataSource = enumerarPlan(planes).DefaultView;
             this.cbPlanes.SelectedIndex = cbPlanes.FindStringExact(plan.Descripcion);
             this.txtID.Text = materiaActual.ID.ToString();
             this.txtDesc.Text = materiaActual.Descripcion;
@@ -65,8 +85,8 @@ namespace UI.Desktop
                 materiaActual = new Materia();
             }
             materiaActual.Descripcion = this.txtDesc.Text;
-            materiaActual.HSSemanales = Convert.ToInt32(this.txtHSS.Text);
-            materiaActual.HSTotales = Convert.ToInt32(this.txtHST.Text);
+            materiaActual.HSSemanales = int.Parse(this.txtHSS.Text);
+            materiaActual.HSTotales = int.Parse(this.txtHST.Text);
             materiaActual.IDPlan = (int)this.cbPlanes.SelectedValue;
 
             switch (Modo)
@@ -88,6 +108,18 @@ namespace UI.Desktop
             }
             else { return true; }
         }
+        public virtual void Eliminar()
+        {
+            MateriaLogic m = new MateriaLogic();
+            m.Delete(materiaActual.ID);
+        }
+        public virtual void GuardarCambios()
+        {
+            MateriaLogic m = new MateriaLogic();
+            MapearADatos();
+            m.Save(materiaActual);
+        }
+
         public void Notificar(string titulo, string mensaje, MessageBoxButtons
 botones, MessageBoxIcon icono)
         {
@@ -115,6 +147,34 @@ botones, MessageBoxIcon icono)
                 Notificar("Materia", "Ingrese solo caracteres numericos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtHST.Text = txtHST.Text.Remove(txtHST.Text.Length - 1);
             }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            switch (Modo)
+            {
+                case ModoForm.Alta:
+                case ModoForm.Modificacion:
+                    if (Validar())
+                    {
+                        GuardarCambios();
+                        Close();
+                    };
+                    break;
+                case ModoForm.Baja:
+                    Eliminar();
+                    Close();
+                    break;
+                case ModoForm.Consulta:
+                    Close();
+                    break;
+
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

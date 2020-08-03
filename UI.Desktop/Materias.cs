@@ -64,5 +64,34 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void tsbNuevo_Click(object sender, EventArgs e)
+        {
+            MateriaDesktop formMateria = new MateriaDesktop(ApplicationForm.ModoForm.Alta);
+            formMateria.ShowDialog();
+            this.Listar();
+        }
+
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvMateria.SelectedRows.Count > 0)
+            {
+                int ID = Convert.ToInt32(this.dgvMateria.SelectedRows[0].Cells["ID"].Value);
+                MateriaDesktop formMateria = new MateriaDesktop(ID,ApplicationForm.ModoForm.Modificacion);
+                formMateria.ShowDialog();
+                this.Listar();
+            }
+        }
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvMateria.SelectedRows.Count > 0)
+            {
+                int ID = Convert.ToInt32(this.dgvMateria.SelectedRows[0].Cells["ID"].Value);
+                MateriaDesktop formMateria = new MateriaDesktop(ID, ApplicationForm.ModoForm.Baja);
+                formMateria.ShowDialog();
+                this.Listar();
+            }
+        }
     }
 }
