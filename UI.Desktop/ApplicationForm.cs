@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FontAwesome;
 
 namespace UI.Desktop
 {
     public partial class ApplicationForm : Form
     {
+        
         public ApplicationForm()
         {
             InitializeComponent();
