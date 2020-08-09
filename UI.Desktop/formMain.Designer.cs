@@ -49,12 +49,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelMainLogo = new System.Windows.Forms.Panel();
+            this.panelMainForms = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.Panel();
             this.PanelMenuLateral.SuspendLayout();
             this.panelSubABM.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panelMainLogo.SuspendLayout();
+            this.panelMainForms.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelMenuLateral
@@ -310,15 +310,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "A";
             // 
-            // panelMainLogo
+            // panelMainForms
             // 
-            this.panelMainLogo.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panelMainLogo.Controls.Add(this.Logo);
-            this.panelMainLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMainLogo.Location = new System.Drawing.Point(200, 0);
-            this.panelMainLogo.Name = "panelMainLogo";
-            this.panelMainLogo.Size = new System.Drawing.Size(842, 691);
-            this.panelMainLogo.TabIndex = 2;
+            this.panelMainForms.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panelMainForms.Controls.Add(this.Logo);
+            this.panelMainForms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMainForms.Location = new System.Drawing.Point(200, 0);
+            this.panelMainForms.Name = "panelMainForms";
+            this.panelMainForms.Size = new System.Drawing.Size(842, 691);
+            this.panelMainForms.TabIndex = 2;
             // 
             // Logo
             // 
@@ -336,7 +336,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1042, 691);
-            this.Controls.Add(this.panelMainLogo);
+            this.Controls.Add(this.panelMainForms);
             this.Controls.Add(this.PanelMenuLateral);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -348,7 +348,7 @@
             this.panelSubABM.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panelMainLogo.ResumeLayout(false);
+            this.panelMainForms.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -356,7 +356,7 @@
         #endregion
 
         private System.Windows.Forms.Panel PanelMenuLateral;
-        private System.Windows.Forms.Panel panelMainLogo;
+        private System.Windows.Forms.Panel panelMainForms;
         private System.Windows.Forms.Panel Logo;
         private System.Windows.Forms.Panel panelSubNotas;
         private System.Windows.Forms.Button btnNOTAS;

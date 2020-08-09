@@ -56,25 +56,26 @@ namespace UI.Desktop
         private void especialidadesMenuItem_Click(object sender, EventArgs e)
         {
             Especialidades appEspecialidades = new Especialidades();
-            appEspecialidades.Show();
+            openChildForm(appEspecialidades);
         }
 
         private void usuariosMenuItem1_Click(object sender, EventArgs e)
         {
             Usuarios appUsuarios = new Usuarios();
-            appUsuarios.Show();
+            //appUsuarios.Show();
+            this.openChildForm(appUsuarios);
         }
 
         private void planesMenuItem_Click(object sender, EventArgs e)
         {
             Planes appPlanes = new Planes();
-            appPlanes.Show();
+            this.openChildForm(appPlanes);
         }
 
         private void materiasMenuItem_Click(object sender, EventArgs e)
         {
             Materias appMaterias = new Materias();
-            appMaterias.Show();
+            openChildForm(appMaterias);
         }
 
         private void ABM_Click(object sender, EventArgs e)
@@ -95,6 +96,21 @@ namespace UI.Desktop
         private void btnNOTAS_Click(object sender, EventArgs e)
         {
             showSubMenu(panelSubNotas);
+        }
+
+        private Form activeForm = null;
+        private void openChildForm(Form childForm)
+        {
+            if(activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelMainForms.Controls.Add(childForm);
+            panelMainForms.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
     }
 }

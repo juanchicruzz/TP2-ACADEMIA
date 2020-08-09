@@ -240,10 +240,11 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand getkey = new SqlCommand("SELECT clave FROM usuarios WHERE nombre_usuario=@user", sqlConn);
+                SqlCommand getkey = new SqlCommand("SELECT * FROM usuarios WHERE nombre_usuario=@user and clave=@clave", sqlConn);
                 getkey.Parameters.Add("@user", SqlDbType.VarChar, 50).Value = user;
-                string drClave = (string)getkey.ExecuteScalar();
-                if (pass == drClave)
+                getkey.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = pass;
+                SqlDataReader drClave = getkey.ExecuteReader();
+                if (drClave.Read())
                 {
                     return true;
                 } 
