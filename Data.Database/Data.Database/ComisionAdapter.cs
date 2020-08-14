@@ -50,7 +50,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdComision = new SqlCommand("Select * from comisiones where id_comision=@id");
+                SqlCommand cmdComision = new SqlCommand("Select * from comisiones where id_comision=@id",sqlConn);
                 cmdComision.Parameters.Add("@id",SqlDbType.Int).Value = ID;
                 SqlDataReader drComision = cmdComision.ExecuteReader();
 

@@ -73,7 +73,7 @@
             this.PanelMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelMenuLateral.Location = new System.Drawing.Point(0, 0);
             this.PanelMenuLateral.Name = "PanelMenuLateral";
-            this.PanelMenuLateral.Size = new System.Drawing.Size(200, 691);
+            this.PanelMenuLateral.Size = new System.Drawing.Size(200, 695);
             this.PanelMenuLateral.TabIndex = 1;
             // 
             // panelSubNotas
@@ -180,6 +180,7 @@
             this.btnComisiones.TabIndex = 8;
             this.btnComisiones.Text = "Comisiones";
             this.btnComisiones.UseVisualStyleBackColor = true;
+            this.btnComisiones.Click += new System.EventHandler(this.btnComisiones_Click);
             // 
             // btnCursos
             // 
@@ -286,6 +287,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(183, 84);
             this.panel1.TabIndex = 0;
+            this.panel1.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // label2
             // 
@@ -298,6 +300,7 @@
             this.label2.Size = new System.Drawing.Size(86, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "cademia";
+            this.label2.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // label1
             // 
@@ -309,6 +312,7 @@
             this.label1.Size = new System.Drawing.Size(64, 67);
             this.label1.TabIndex = 0;
             this.label1.Text = "A";
+            this.label1.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // panelMainForms
             // 
@@ -317,7 +321,7 @@
             this.panelMainForms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainForms.Location = new System.Drawing.Point(200, 0);
             this.panelMainForms.Name = "panelMainForms";
-            this.panelMainForms.Size = new System.Drawing.Size(842, 691);
+            this.panelMainForms.Size = new System.Drawing.Size(960, 695);
             this.panelMainForms.TabIndex = 2;
             // 
             // Logo
@@ -325,7 +329,7 @@
             this.Logo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Logo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Logo.BackgroundImage")));
             this.Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Logo.Location = new System.Drawing.Point(335, 259);
+            this.Logo.Location = new System.Drawing.Point(394, 261);
             this.Logo.Margin = new System.Windows.Forms.Padding(0);
             this.Logo.Name = "Logo";
             this.Logo.Size = new System.Drawing.Size(173, 173);
@@ -335,7 +339,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1042, 691);
+            this.ClientSize = new System.Drawing.Size(1160, 695);
             this.Controls.Add(this.panelMainForms);
             this.Controls.Add(this.PanelMenuLateral);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

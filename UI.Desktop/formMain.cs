@@ -24,6 +24,11 @@ namespace UI.Desktop
             panelSubExamenes.Visible = false;
             panelSubNotas.Visible = false;
         }
+        private void homeButton_Click(object sender, EventArgs e) 
+        {
+            if (activeForm != null)
+                activeForm.Close();
+        }
         private void hideSubMenu()
         {
             if (panelSubABM.Visible) panelSubABM.Visible = false;
@@ -77,7 +82,11 @@ namespace UI.Desktop
             Materias appMaterias = new Materias();
             openChildForm(appMaterias);
         }
-
+        private void btnComisiones_Click(object sender, EventArgs e)
+        {
+            Comisiones appComisiones = new Comisiones();
+            openChildForm(appComisiones);
+        }
         private void ABM_Click(object sender, EventArgs e)
         {
             showSubMenu(panelSubABM);
@@ -97,7 +106,7 @@ namespace UI.Desktop
         {
             showSubMenu(panelSubNotas);
         }
-
+        
         private Form activeForm = null;
         private void openChildForm(Form childForm)
         {
@@ -112,5 +121,7 @@ namespace UI.Desktop
             childForm.BringToFront();
             childForm.Show();
         }
+
+       
     }
 }
