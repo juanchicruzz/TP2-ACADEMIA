@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Comisiones : Form
+    public partial class Comisiones : ApplicationForm
     {
         private Form activeForm = null;
         public Comisiones()
