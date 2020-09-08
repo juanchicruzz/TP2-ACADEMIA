@@ -40,7 +40,7 @@ namespace Business.Logic
         {
             cursoAdapter.Delete(ID);
         }
-        public void Save(Curso Curso
+        public void Save(Curso curso
             )
         {
             cursoAdapter.Save(curso);
