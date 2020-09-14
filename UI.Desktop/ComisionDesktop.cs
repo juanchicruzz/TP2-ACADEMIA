@@ -2,14 +2,8 @@
 using Business.Logic;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using UI.Desktop;
 using FastMember;
 
 namespace UI.Desktop
@@ -21,12 +15,14 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
+
         private DataTable enumerarPlan(List<Plan> planes)
         {
             DataTable items = new DataTable();
             using (var reader = ObjectReader.Create(planes)) { items.Load(reader); }
             return items;
         }
+
         public ComisionDesktop(ModoForm modo):this()
         {
             Modo = modo;

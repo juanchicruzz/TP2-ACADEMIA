@@ -88,7 +88,7 @@
             // 
             this.btnNOTAS.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNOTAS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNOTAS.Font = new System.Drawing.Font("Product Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNOTAS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNOTAS.Location = new System.Drawing.Point(0, 766);
             this.btnNOTAS.Name = "btnNOTAS";
             this.btnNOTAS.Size = new System.Drawing.Size(183, 35);
@@ -109,7 +109,7 @@
             // 
             this.btnEXAMENES.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEXAMENES.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEXAMENES.Font = new System.Drawing.Font("Product Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEXAMENES.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEXAMENES.Location = new System.Drawing.Point(0, 563);
             this.btnEXAMENES.Name = "btnEXAMENES";
             this.btnEXAMENES.Size = new System.Drawing.Size(183, 35);
@@ -130,7 +130,7 @@
             // 
             this.btnCALENDARIO.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCALENDARIO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCALENDARIO.Font = new System.Drawing.Font("Product Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCALENDARIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCALENDARIO.Location = new System.Drawing.Point(0, 360);
             this.btnCALENDARIO.Name = "btnCALENDARIO";
             this.btnCALENDARIO.Size = new System.Drawing.Size(183, 35);
@@ -160,7 +160,7 @@
             this.btnProfesores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProfesores.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProfesores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfesores.Font = new System.Drawing.Font("Product Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfesores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfesores.Location = new System.Drawing.Point(0, 210);
             this.btnProfesores.Name = "btnProfesores";
             this.btnProfesores.Size = new System.Drawing.Size(183, 30);
@@ -173,7 +173,7 @@
             this.btnComisiones.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnComisiones.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnComisiones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComisiones.Font = new System.Drawing.Font("Product Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComisiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnComisiones.Location = new System.Drawing.Point(0, 180);
             this.btnComisiones.Name = "btnComisiones";
             this.btnComisiones.Size = new System.Drawing.Size(183, 30);
@@ -187,20 +187,21 @@
             this.btnCursos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCursos.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCursos.Font = new System.Drawing.Font("Product Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCursos.Location = new System.Drawing.Point(0, 150);
             this.btnCursos.Name = "btnCursos";
             this.btnCursos.Size = new System.Drawing.Size(183, 30);
             this.btnCursos.TabIndex = 7;
             this.btnCursos.Text = "Cursos";
             this.btnCursos.UseVisualStyleBackColor = true;
+            this.btnCursos.Click += new System.EventHandler(this.btnCursos_Click);
             // 
             // btnAlumnos
             // 
             this.btnAlumnos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAlumnos.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlumnos.Font = new System.Drawing.Font("Product Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlumnos.Location = new System.Drawing.Point(0, 120);
             this.btnAlumnos.Name = "btnAlumnos";
             this.btnAlumnos.Size = new System.Drawing.Size(183, 30);
@@ -213,7 +214,7 @@
             this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuarios.Font = new System.Drawing.Font("Product Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.Location = new System.Drawing.Point(0, 90);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(183, 30);
@@ -227,7 +228,7 @@
             this.btnMaterias.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaterias.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMaterias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaterias.Font = new System.Drawing.Font("Product Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaterias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaterias.Location = new System.Drawing.Point(0, 60);
             this.btnMaterias.Name = "btnMaterias";
             this.btnMaterias.Size = new System.Drawing.Size(183, 30);
@@ -241,7 +242,7 @@
             this.btnPlanes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlanes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPlanes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlanes.Font = new System.Drawing.Font("Product Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlanes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlanes.Location = new System.Drawing.Point(0, 30);
             this.btnPlanes.Name = "btnPlanes";
             this.btnPlanes.Size = new System.Drawing.Size(183, 30);
@@ -255,7 +256,7 @@
             this.btnEspecialidades.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEspecialidades.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEspecialidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEspecialidades.Font = new System.Drawing.Font("Product Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEspecialidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEspecialidades.Location = new System.Drawing.Point(0, 0);
             this.btnEspecialidades.Name = "btnEspecialidades";
             this.btnEspecialidades.Size = new System.Drawing.Size(183, 30);
@@ -268,7 +269,7 @@
             // 
             this.btnABM.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnABM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnABM.Font = new System.Drawing.Font("Product Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnABM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnABM.Location = new System.Drawing.Point(0, 84);
             this.btnABM.Name = "btnABM";
             this.btnABM.Size = new System.Drawing.Size(183, 35);
@@ -293,7 +294,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Font = new System.Drawing.Font("Product Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(70, 28);
             this.label2.Name = "label2";
@@ -305,11 +306,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Product Sans", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(29, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 67);
+            this.label1.Size = new System.Drawing.Size(62, 61);
             this.label1.TabIndex = 0;
             this.label1.Text = "A";
             this.label1.Click += new System.EventHandler(this.homeButton_Click);

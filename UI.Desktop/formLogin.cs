@@ -16,6 +16,8 @@ namespace UI.Desktop
         public formLogin()
         {
             InitializeComponent();
+            this.txtUsuario.Text = "Juan";
+            this.txtPass.Text = "123456";
         }
 
 

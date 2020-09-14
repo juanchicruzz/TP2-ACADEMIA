@@ -24,8 +24,17 @@ namespace UI.Desktop
         public CursoDesktop(ModoForm modo) : this()
         {
             Modo = modo;
+            MateriaLogic m = new MateriaLogic();
+            List<Materia> materias = m.GetAll();
+            this.cbMaterias.DataSource = materias;
+
+
+            ComisionLogic c = new ComisionLogic();
+            List<Comision> comisiones = c.GetAll();
+            this.cbComisiones.DataSource = comisiones;
             this.btnAceptar.Text = "Guardar";
         }
+
         public CursoDesktop(int ID,ModoForm modo) : this()
         {
             Modo = modo;
@@ -50,9 +59,61 @@ namespace UI.Desktop
 
             }
         }
+
+        //private DataTable enumerarMateria(List<Materia> materias)
+        //{
+        //    DataTable items = new DataTable();
+        //    using (var reader = ObjectReader.Create(materias)) { items.Load(reader); }
+        //    return items;
+        //}
+        //private DataTable enumerarComision(List<Comision> comisiones)
+        //{
+        //    DataTable items = new DataTable();
+        //    using (var reader = ObjectReader.Create(comisiones)) { items.Load(reader); }
+        //    return items;
+        //}
+
+        public override void MapearADatos()
+        {
+            if (Modo == ModoForm.Alta)
+            {
+                cursoActual = new Curso();
+            }
+            cursoActual.Cupo = int.Parse(this.txtCupo.Text);
+            cursoActual.IDComision = (int)this.cbComisiones.SelectedValue;
+            cursoActual.IDMateria = (int)this.cbMaterias.SelectedValue;
+            cursoActual.AnioCalendario = int.Parse(this.txtAño.Text);
+            switch (Modo)
+            {
+                case ModoForm.Alta:
+                    cursoActual.State = BusinessEntity.States.New;
+                    break;
+                case ModoForm.Modificacion:
+                    cursoActual.State = BusinessEntity.States.Modified;
+                    break;
+            }
+        }
+
         public virtual void MapearDeDatos()
         {
-            //Seguir
+            MateriaLogic m = new MateriaLogic();
+            List<Materia> materias = m.GetAll();
+            Materia materia = m.GetOne(cursoActual.IDMateria);
+            this.cbMaterias.DataSource = materias;
+            //this.cbMaterias.DataSource = enumerarPlan(materias).DefaultView;
+            this.cbMaterias.SelectedIndex = cbMaterias.FindStringExact(materia.Descripcion);
+
+            ComisionLogic c = new ComisionLogic();
+            List<Comision> comisiones = c.GetAll();
+            Comision comision = c.GetOne(cursoActual.IDComision);
+            this.cbComisiones.DataSource = comisiones;
+            //this.cbComisiones.DataSource = enumerarComision(comisiones).DefaultView;
+            this.cbComisiones.SelectedIndex = cbComisiones.FindStringExact(comision.Descripcion);
+
+            this.txtCupo.Text = cursoActual.Cupo.ToString();
+            this.txtAño.Text = cursoActual.AnioCalendario.ToString();
+            this.txtID.Text = cursoActual.ID.ToString();
+
         }
         public virtual void Eliminar()
         {
@@ -94,8 +155,16 @@ botones, MessageBoxIcon icono)
                 case ModoForm.Consulta:
                     Close();
                     break;
-
             }
+        }
+        public override bool Validar()
+        {
+            if (string.IsNullOrWhiteSpace(this.txtCupo.Text))
+            {
+                Notificar("Error", "Debe completar todos los campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else { return true; }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

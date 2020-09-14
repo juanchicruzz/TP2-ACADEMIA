@@ -87,6 +87,13 @@ namespace UI.Desktop
             Comisiones appComisiones = new Comisiones();
             openChildForm(appComisiones);
         }
+
+        private void btnCursos_Click(object sender, EventArgs e)
+        {
+            Cursos appComisiones = new Cursos();
+            openChildForm(appComisiones);
+        }
+
         private void ABM_Click(object sender, EventArgs e)
         {
             showSubMenu(panelSubABM);
@@ -106,7 +113,7 @@ namespace UI.Desktop
         {
             showSubMenu(panelSubNotas);
         }
-        
+
         private Form activeForm = null;
         private void openChildForm(Form childForm)
         {
@@ -121,7 +128,5 @@ namespace UI.Desktop
             childForm.BringToFront();
             childForm.Show();
         }
-
-       
     }
 }
