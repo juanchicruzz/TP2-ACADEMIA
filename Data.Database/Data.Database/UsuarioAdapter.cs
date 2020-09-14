@@ -82,7 +82,10 @@ namespace Data.Database
                     usr.Habilitado = (bool)drUsuarios["habilitado"];
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];
-                    usr.EMail = (string)drUsuarios["email"];
+                    if (drUsuarios["email"] != System.DBNull.Value)
+                    {
+                        usr.EMail = (string)drUsuarios["email"];
+                    }
 
                     usuarios.Add(usr);
                 }
@@ -123,9 +126,12 @@ namespace Data.Database
                     usr.Habilitado = (bool)drUsuarios["habilitado"];
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];
-                    usr.EMail = (string)drUsuarios["email"];
+                    if (drUsuarios["email"] != System.DBNull.Value)
+                    {
+                        usr.EMail = (string)drUsuarios["email"];
+                    }
 
-                    
+
                 }
                 drUsuarios.Close();
                 

@@ -14,7 +14,7 @@ namespace Data.Database
         public SqlConnection sqlConn;
         protected void OpenConnection()
         {
-            var conexion =ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
+            var conexion = ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
             this.sqlConn = new SqlConnection(conexion);
             this.sqlConn.Open();
             
