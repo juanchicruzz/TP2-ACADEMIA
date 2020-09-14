@@ -10,9 +10,9 @@ namespace Business.Entities
     {
         public enum TiposPersona 
         {
-            Alumno,
-            Docente,
-            Empleado
+            Alumno = 1,
+            Profesor = 2,
+            Administrativo= 3
         }
 
         private string _Apellido;
