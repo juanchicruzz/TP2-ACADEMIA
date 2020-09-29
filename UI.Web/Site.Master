@@ -4,17 +4,28 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<title>Academia</title>
+	<title>Academia</title>
+	<link href="estilos.css" rel="stylesheet" type="text/css"/>
 </head>
-<body>
-    <form id="bodyForm" runat="server">
-        <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource"></asp:Menu>
-        <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server"/>
-        <div>
-            <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+<body>  
+	<header id="inicio">
+		<h1 id="titulo">Academia</h1>
+	</header>
+    <asp:panel runat="server" id="header">
+	<nav id="navbar">
+		<ul>
+			<li><a href="usuarios.aspx">Usuarios</a></li>
+			<li><a href="#">XXXXXXX</a></li>
+			<li><a href="#">XXXXXXX</a></li>
+			<li><a href="#">XXXXXXX</a></li>
+		</ul>
+	</nav>
+	</asp:panel>
+	<div>
+	<form id="bodyForm" runat="server">
+        <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
+        </asp:ContentPlaceHolder>
     </form>
-
+	</div>
 </body>
 </html>

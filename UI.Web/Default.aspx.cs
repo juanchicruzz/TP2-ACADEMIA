@@ -11,7 +11,17 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                Panel header = (Panel)Master.FindControl("header");
+                header.Visible = false;
+            }
+        }
+        protected void ingresarLinkButton_Click(object sender, EventArgs e)
+        {
+            Panel header = (Panel)Master.FindControl("header");
+            header.Visible = true;
+            Response.Redirect("usuarios.aspx");
         }
     }
 }
