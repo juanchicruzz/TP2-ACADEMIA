@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="Usuarios" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="UI.Web.Usuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
+    <link href="TablasEstilos.css" rel="stylesheet" />
+    <section class="fa-table">
     <asp:Panel ID="gridPanel" runat="server" >
-        <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnLoad="Page_Load" OnSelectedIndexChanged="gridView_SelectedIndexChanged">
+        <asp:GridView class="tablas" ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnLoad="Page_Load" OnSelectedIndexChanged="gridView_SelectedIndexChanged">
         <Columns>
             <asp:BoundField HeaderText="Nombre" DataField="Nombre"/>
             <asp:BoundField HeaderText="Apellido" DataField="Apellido"/>
@@ -12,6 +14,8 @@
         </Columns>
         </asp:GridView>
     </asp:Panel>
+    </section>
+
    <asp:Panel ID="formPanel" Visible= "false" runat="server" Width="436px">
         <asp:Label ID="nombreLabel" runat="server" Text="Nombre: "></asp:Label>
         <asp:TextBox ID="nombreTextBox" runat="server">
@@ -41,7 +45,9 @@
         <asp:TextBox ID="repetirClaveTextBox" TextMode="Password" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="repetirClaveTextBox" ForeColor="red" ErrorMessage="Clave requerida">*</asp:RequiredFieldValidator>
         <br />
+   
     </asp:Panel>
+    <section class="botones">
         <asp:Panel ID="gridActionsPanel" runat="server">
        <asp:LinkButton ID="editarLinkButton" runat="server" Width="50" OnClick="editarLinkButton_Click">Editar</asp:LinkButton>
        <asp:LinkButton ID="eliminarLinkButton" runat="server" Width="70" OnClick="eliminarLinkButton_Click">Eliminar</asp:LinkButton>
@@ -51,5 +57,6 @@
        <asp:LinkButton ID="aceptarLinkButton" runat="server" Width="70" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
        <asp:LinkButton ID="cancelarLinkButton" runat="server" Width="70" CausesValidation="false" OnClick="cancelarLinkButton_Click">Cancelar</asp:LinkButton>
     </asp:Panel>
+   </section>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
 </asp:Content>
