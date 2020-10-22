@@ -170,7 +170,7 @@
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(259, 242);
             this.Name = "CursoDesktop";
-            this.Text = "CursoDesktop";
+            this.Text = "Curso";
             this.ResumeLayout(false);
             this.PerformLayout();
 

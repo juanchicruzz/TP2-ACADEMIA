@@ -2,37 +2,19 @@
 using Business.Logic;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 
 namespace UI.Desktop
 {
-    public partial class Cursos : ApplicationForm
+    public partial class Cursos : Form
     {
-        private Form _activeForm = null;
-
         public Cursos()
         {
             InitializeComponent();
-        }
-
-        public void openChildForm(Form childForm)
-        {
-            if (_activeForm != null)
-                _activeForm.Close();
-            _activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            panelAdd.Controls.Add(childForm);
-            panelAdd.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
         }
 
         public void Listar()
@@ -84,38 +66,102 @@ namespace UI.Desktop
         {
             Listar();
         }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            CursoDesktop formCurso = new CursoDesktop(ApplicationForm.ModoForm.Alta);
-            openChildForm(formCurso);
+            CursoDesktop formCur = new CursoDesktop(ApplicationForm.ModoForm.Alta);
+            formCur.ShowDialog();
             this.Listar();
         }
 
-        private void panelAdd_ControlRemoved(object sender, ControlEventArgs e)
+        private void tsbEditar_Click(object sender, EventArgs e)
         {
-            Listar();
+            if (this.dgvCursos.SelectedRows.Count > 0)
+            {
+                int ID = Convert.ToInt32(this.dgvCursos.SelectedRows[0].Cells["ID"].Value);
+                CursoDesktop formCurso = new CursoDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+                formCurso.ShowDialog();
+                this.Listar();
+            }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
-        { 
-                if (this.dgvCursos.SelectedRows.Count > 0)
-                {
-                    int ID = Convert.ToInt32(this.dgvCursos.SelectedRows[0].Cells["ID"].Value);
-                    CursoDesktop formCurso = new CursoDesktop(ID, ApplicationForm.ModoForm.Modificacion);
-                    openChildForm(formCurso);
-                    this.Listar();
-                }
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void tsbEliminar_Click(object sender, EventArgs e)
         {
             if (this.dgvCursos.SelectedRows.Count > 0)
             {
                 int ID = Convert.ToInt32(this.dgvCursos.SelectedRows[0].Cells["ID"].Value);
                 CursoDesktop formCurso = new CursoDesktop(ID, ApplicationForm.ModoForm.Baja);
-                openChildForm(formCurso);
+                formCurso.ShowDialog();
                 this.Listar();
+            }
+        }
+
+        private void tsbReporte_Click(object sender, EventArgs e)
+        {
+            if (dgvCursos.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF (*.pdf)|*.pdf";
+                sfd.FileName = "Output.pdf";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            PdfPTable pdfTable = new PdfPTable(dgvCursos.Columns.Count);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                            foreach (DataGridViewColumn column in dgvCursos.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                pdfTable.AddCell(cell);
+                            }
+
+                            foreach (DataGridViewRow row in dgvCursos.Rows)
+                            {
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    pdfTable.AddCell(cell.Value.ToString());
+                                }
+                            }
+
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+                                pdfDoc.Open();
+                                pdfDoc.Add(pdfTable);
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+
+                            MessageBox.Show("Cursos exportados", "Info");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error :" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No existen cursos para exportar", "Info");
             }
         }
     }

@@ -13,6 +13,7 @@ namespace Business.Entities
         private String _Nombre;
         private String _Apellido;
         private String _EMail;
+        private int? _IDPersona;
         private bool _Habilitado;
 
         public String NombreUsuario
@@ -39,6 +40,11 @@ namespace Business.Entities
         {
             get { return _EMail; }
             set { _EMail = value; }
+        }
+        public int? IDPersona
+        {
+            get { return _IDPersona; }
+            set { _IDPersona = value; }
         }
         public bool Habilitado
         {

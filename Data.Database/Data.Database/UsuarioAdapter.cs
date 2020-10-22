@@ -126,6 +126,7 @@ namespace Data.Database
                     usr.Habilitado = (bool)drUsuarios["habilitado"];
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];
+                    usr.IDPersona = (int?)drUsuarios["id_persona"];
                     if (drUsuarios["email"] != System.DBNull.Value)
                     {
                         usr.EMail = (string)drUsuarios["email"];
@@ -241,10 +242,11 @@ namespace Data.Database
             usuario.State = BusinessEntity.States.Unmodified;            
         }
 
-        public bool Login(string user, string pass) 
+        public Usuario Login(string user, string pass) 
         {
             try
             {
+                Usuario usr = new Usuario();
                 this.OpenConnection();
                 SqlCommand getkey = new SqlCommand("SELECT * FROM usuarios WHERE nombre_usuario=@user and clave=@clave", sqlConn);
                 getkey.Parameters.Add("@user", SqlDbType.VarChar, 50).Value = user;
@@ -252,9 +254,20 @@ namespace Data.Database
                 SqlDataReader drClave = getkey.ExecuteReader();
                 if (drClave.Read())
                 {
-                    return true;
+                    usr.ID = (int)drClave["id_usuario"];
+                    usr.NombreUsuario = (string)drClave["nombre_usuario"];
+                    usr.Clave = (string)drClave["clave"];
+                    usr.Habilitado = (bool)drClave["habilitado"];
+                    usr.Nombre = (string)drClave["nombre"];
+                    usr.Apellido = (string)drClave["apellido"];
+                    usr.IDPersona = (int?)drClave["id_persona"];
+                    if (drClave["email"] != System.DBNull.Value)
+                    {
+                        usr.EMail = (string)drClave["email"];
+                    }
+                    return usr;
                 } 
-                else { return false; }
+                else { return null; }
             }
             catch (Exception Ex)
             {

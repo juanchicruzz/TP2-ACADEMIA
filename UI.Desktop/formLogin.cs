@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Entities;
 using Business.Logic;
 
 namespace UI.Desktop
@@ -17,7 +18,7 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.txtUsuario.Text = "Juan";
-            this.txtPass.Text = "123456";
+            this.txtPass.Text = "12345678";
         }
 
 
@@ -25,9 +26,11 @@ namespace UI.Desktop
         {
             UsuarioLogic u = new UsuarioLogic();
             //la propiedad Text de los TextBox contiene el texto escrito en ellos
-            if (u.Login(this.txtUsuario.Text,this.txtPass.Text))
+            Usuario usuario = u.Login(this.txtUsuario.Text, this.txtPass.Text);
+            if(usuario != null)
             {
                 this.DialogResult = DialogResult.OK;
+                Session.Usuario = usuario;
             }
             else
             {

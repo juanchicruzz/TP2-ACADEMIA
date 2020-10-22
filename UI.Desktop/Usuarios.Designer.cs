@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            FontAwesome.Sharp.IconButton btnNuevo;
-            FontAwesome.Sharp.IconButton btnEditar;
-            FontAwesome.Sharp.IconButton btnEliminar;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
             this.tcUsuarios = new System.Windows.Forms.ToolStripContainer();
+            this.tsCursos = new System.Windows.Forms.ToolStrip();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
@@ -41,91 +44,88 @@
             this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.habilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            btnNuevo = new FontAwesome.Sharp.IconButton();
-            btnEditar = new FontAwesome.Sharp.IconButton();
-            btnEliminar = new FontAwesome.Sharp.IconButton();
             this.tcUsuarios.ContentPanel.SuspendLayout();
             this.tcUsuarios.SuspendLayout();
+            this.tsCursos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnNuevo
-            // 
-            btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.Honeydew;
-            btnNuevo.FlatAppearance.BorderSize = 0;
-            btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnNuevo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            btnNuevo.IconChar = FontAwesome.Sharp.IconChar.Users;
-            btnNuevo.IconColor = System.Drawing.Color.Black;
-            btnNuevo.IconSize = 40;
-            btnNuevo.Location = new System.Drawing.Point(659, 12);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Rotation = 0D;
-            btnNuevo.Size = new System.Drawing.Size(41, 41);
-            btnNuevo.TabIndex = 4;
-            btnNuevo.UseVisualStyleBackColor = true;
-            btnNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
-            // 
-            // btnEditar
-            // 
-            btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Honeydew;
-            btnEditar.FlatAppearance.BorderSize = 0;
-            btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnEditar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            btnEditar.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            btnEditar.IconColor = System.Drawing.Color.Black;
-            btnEditar.IconSize = 40;
-            btnEditar.Location = new System.Drawing.Point(706, 13);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Rotation = 0D;
-            btnEditar.Size = new System.Drawing.Size(40, 40);
-            btnEditar.TabIndex = 5;
-            btnEditar.UseVisualStyleBackColor = true;
-            btnEditar.Click += new System.EventHandler(this.tsbEditar_Click);
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Honeydew;
-            btnEliminar.FlatAppearance.BorderSize = 0;
-            btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnEliminar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            btnEliminar.IconColor = System.Drawing.Color.Black;
-            btnEliminar.IconSize = 40;
-            btnEliminar.Location = new System.Drawing.Point(752, 13);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Rotation = 0D;
-            btnEliminar.Size = new System.Drawing.Size(40, 40);
-            btnEliminar.TabIndex = 6;
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
-            // 
             // tcUsuarios
             // 
+            this.tcUsuarios.BottomToolStripPanelVisible = false;
             // 
             // tcUsuarios.ContentPanel
             // 
-            this.tcUsuarios.ContentPanel.Controls.Add(btnEditar);
-            this.tcUsuarios.ContentPanel.Controls.Add(btnEliminar);
-            this.tcUsuarios.ContentPanel.Controls.Add(btnNuevo);
+            this.tcUsuarios.ContentPanel.Controls.Add(this.tsCursos);
+            this.tcUsuarios.ContentPanel.Controls.Add(this.toolStrip1);
             this.tcUsuarios.ContentPanel.Controls.Add(this.btnActualizar);
             this.tcUsuarios.ContentPanel.Controls.Add(this.btnSalir);
             this.tcUsuarios.ContentPanel.Controls.Add(this.dgvUsuarios);
             this.tcUsuarios.ContentPanel.Size = new System.Drawing.Size(1038, 627);
             this.tcUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcUsuarios.LeftToolStripPanelVisible = false;
             this.tcUsuarios.Location = new System.Drawing.Point(0, 0);
             this.tcUsuarios.Name = "tcUsuarios";
+            this.tcUsuarios.RightToolStripPanelVisible = false;
             this.tcUsuarios.Size = new System.Drawing.Size(1038, 627);
             this.tcUsuarios.TabIndex = 0;
             this.tcUsuarios.Text = "toolStripContainer1";
+            this.tcUsuarios.TopToolStripPanelVisible = false;
+            // 
+            // tsCursos
+            // 
+            this.tsCursos.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsCursos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbNuevo,
+            this.tsbEditar,
+            this.tsbEliminar});
+            this.tsCursos.Location = new System.Drawing.Point(3, 0);
+            this.tsCursos.Name = "tsCursos";
+            this.tsCursos.Size = new System.Drawing.Size(81, 25);
+            this.tsCursos.TabIndex = 18;
+            // 
+            // tsbNuevo
+            // 
+            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
+            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNuevo.Name = "tsbNuevo";
+            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
+            this.tsbNuevo.Text = "Nuevo";
+            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click_1);
+            // 
+            // tsbEditar
+            // 
+            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
+            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditar.Name = "tsbEditar";
+            this.tsbEditar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEditar.Text = "Editar";
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click_1);
+            // 
+            // tsbEliminar
+            // 
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
+            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEliminar.Name = "tsbEliminar";
+            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEliminar.Text = "Eliminar";
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click_1);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1038, 25);
+            this.toolStrip1.TabIndex = 4;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(879, 592);
+            this.btnActualizar.Location = new System.Drawing.Point(879, 567);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 3;
@@ -136,7 +136,7 @@
             // btnSalir
             // 
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalir.Location = new System.Drawing.Point(960, 592);
+            this.btnSalir.Location = new System.Drawing.Point(960, 567);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
@@ -148,7 +148,6 @@
             // 
             this.dgvUsuarios.AllowUserToAddRows = false;
             this.dgvUsuarios.AllowUserToDeleteRows = false;
-            this.dgvUsuarios.BackgroundColor = System.Drawing.Color.CadetBlue;
             this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -160,7 +159,7 @@
             this.email,
             this.habilitado});
             this.dgvUsuarios.DataBindings.Add(new System.Windows.Forms.Binding("AutoGenerateColumns", global::UI.Desktop.Properties.Settings.Default, "False", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.dgvUsuarios.Location = new System.Drawing.Point(12, 12);
+            this.dgvUsuarios.Location = new System.Drawing.Point(3, 28);
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
@@ -225,8 +224,11 @@
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.Usuarios_Load);
             this.tcUsuarios.ContentPanel.ResumeLayout(false);
+            this.tcUsuarios.ContentPanel.PerformLayout();
             this.tcUsuarios.ResumeLayout(false);
             this.tcUsuarios.PerformLayout();
+            this.tsCursos.ResumeLayout(false);
+            this.tsCursos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.ResumeLayout(false);
 
@@ -244,5 +246,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewCheckBoxColumn habilitado;
+        private System.Windows.Forms.ToolStrip tsCursos;
+        private System.Windows.Forms.ToolStripButton tsbNuevo;
+        private System.Windows.Forms.ToolStripButton tsbEditar;
+        private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }

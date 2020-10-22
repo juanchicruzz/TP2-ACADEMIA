@@ -19,32 +19,13 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
-        public void openChildForm(Form childForm)
-        {
-            if (activeForm != null)
-                activeForm.Close();
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            panelAdd.Controls.Add(childForm);
-            panelAdd.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }
-        private void tsbNuevo_Click(object sender, EventArgs e)
-        {
-            ComisionDesktop formComision = new ComisionDesktop(ApplicationForm.ModoForm.Alta);
-            openChildForm(formComision);
-            this.Listar();
-        }
         private void tsbEditar_Click(object sender, EventArgs e)
         {
             if (this.dgvComisones.SelectedRows.Count > 0)
             {
                 int ID = Convert.ToInt32(this.dgvComisones.SelectedRows[0].Cells["ID"].Value);
                 ComisionDesktop formComision = new ComisionDesktop(ID, ApplicationForm.ModoForm.Modificacion);
-                openChildForm(formComision);
+                formComision.ShowDialog();
                 this.Listar();
             }
         }
@@ -54,7 +35,7 @@ namespace UI.Desktop
             {
                 int ID = Convert.ToInt32(this.dgvComisones.SelectedRows[0].Cells["ID"].Value);
                 ComisionDesktop formComision = new ComisionDesktop(ID, ApplicationForm.ModoForm.Baja);
-                openChildForm(formComision);
+                formComision.ShowDialog();
                 this.Listar();
             }
         }
@@ -105,6 +86,13 @@ namespace UI.Desktop
         private void panelAdd_ControlRemoved(object sender, ControlEventArgs e)
         {
             Listar();
+        }
+
+        private void tsbNuevo_Click_1(object sender, EventArgs e)
+        {
+            ComisionDesktop formComision = new ComisionDesktop(ApplicationForm.ModoForm.Alta);
+            formComision.ShowDialog();
+            this.Listar();
         }
     }
 }
