@@ -127,6 +127,8 @@
     <Content Include="imagenes\Acad.jpg" />
     <Content Include="imagenes\Academia.png" />
     <Content Include="imagenes\fondo.jpg" />
+    <Content Include="Comisiones.aspx" />
+    <Content Include="Planes.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -156,6 +158,8 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="Especialidades.aspx" />
+    <Content Include="Materias.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -176,6 +180,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Comisiones.aspx.cs">
+      <DependentUpon>Comisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comisiones.aspx.designer.cs">
+      <DependentUpon>Comisiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Planes.aspx.cs">
+      <DependentUpon>Planes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Planes.aspx.designer.cs">
+      <DependentUpon>Planes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -190,6 +208,20 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Especialidades.aspx.cs">
+      <DependentUpon>Especialidades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Especialidades.aspx.designer.cs">
+      <DependentUpon>Especialidades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Materias.aspx.cs">
+      <DependentUpon>Materias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Materias.aspx.designer.cs">
+      <DependentUpon>Materias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
