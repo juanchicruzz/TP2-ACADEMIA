@@ -122,21 +122,22 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
-        public void Save(Materia materia)
-        {
-            if (materia.State == BusinessEntity.States.New)
-            {
-                this.Insert(materia);
-            }
-            else if (materia.State == BusinessEntity.States.Deleted)
-            {
-                this.Delete(materia.ID);
-            }
-            else if (materia.State == BusinessEntity.States.Modified)
-            {
-                this.Update(materia);
-            }
-            materia.State = BusinessEntity.States.Unmodified;
-        }
+     
+        //public void Save(Materia materia)
+        //{
+        //    if (materia.State == BusinessEntity.States.New)
+        //    {
+        //        this.Insert(materia);
+        //    }
+        //    else if (materia.State == BusinessEntity.States.Deleted)
+        //    {
+        //        this.Delete(materia.ID);
+        //    }
+        //    else if (materia.State == BusinessEntity.States.Modified)
+        //    {
+        //        this.Update(materia);
+        //    }
+        //    materia.State = BusinessEntity.States.Unmodified;
+        //}
     }
 }
