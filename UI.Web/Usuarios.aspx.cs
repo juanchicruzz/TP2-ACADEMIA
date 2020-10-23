@@ -23,7 +23,7 @@ namespace UI.Web
         {
             get
             {
-                if (this.ViewState["SlectedID"] != null)
+                if (this.ViewState["SelectedID"] != null)
                 {
                     return (int)this.ViewState["SelectedID"];
                 }

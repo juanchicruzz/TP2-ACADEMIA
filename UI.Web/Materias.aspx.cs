@@ -7,6 +7,7 @@ using Microsoft.Ajax.Utilities;
 using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.UI.WebControls;
 
 namespace UI.Web
 {
@@ -99,6 +100,7 @@ namespace UI.Web
             if (!Page.IsPostBack)
             {
                 LoadGrid();
+                LoadCombo();
             }
 
         }
@@ -107,13 +109,23 @@ namespace UI.Web
         {
             this.SelectedID = (int)this.gridViewMat.SelectedValue;
         }
+        private void LoadCombo()
+        {
+            PlanLogic pl = new PlanLogic();
+            List<Plan> planes = pl.GetAll();
+            this.planesDD.DataSource = planes;
+            this.planesDD.DataBind();
+        }
         private void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
             this.descripcionTextBox.Text = this.Entity.Descripcion;
             this.hsemanalesTextBox.Text = this.Entity.HSSemanales.ToString();
             this.htotalesTextBox.Text = this.Entity.HSTotales.ToString();
-            this.planTextBox.Text = this.Entity.IDPlan.ToString();
+           
+            planesDD.ClearSelection();
+            ListItem listaPlan = planesDD.Items.FindByValue(this.Entity.IDPlan.ToString());
+            if (listaPlan != null) { listaPlan.Selected = true; }
         }
 
         protected void editarLinkButtonMat_Click(object sender, EventArgs e)
@@ -133,8 +145,10 @@ namespace UI.Web
             materia.Descripcion = this.descripcionTextBox.Text;
             materia.HSSemanales = Int32.Parse(this.hsemanalesTextBox.Text);
             materia.HSTotales = Int32.Parse(this.htotalesTextBox.Text);
-            materia.IDPlan = Int32.Parse(this.planTextBox.Text);
-           
+            
+            materia.IDPlan = Int32.Parse(this.planesDD.SelectedItem.Value);
+
+
         }
 
         private void SaveEntity(Materia materia)
@@ -155,6 +169,9 @@ namespace UI.Web
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
                     this.gridActionsPanelMat.Visible = true;
+                    this.gridPanelMat.Visible = true;
+                    this.formActionsPanelMat.Visible = false;
+                    this.formPanelMat.Visible = false;
                     break;
                 case FormModes.Alta:
 
@@ -163,10 +180,17 @@ namespace UI.Web
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
                     this.gridActionsPanelMat.Visible = true;
+                    this.gridPanelMat.Visible = true;
+                    this.formPanelMat.Visible = false;
+                    this.formActionsPanelMat.Visible = false;
                     break;
                 case FormModes.Baja:
                     this.DeleteEntity((int)this.ViewState["SelectedID"]);
                     this.LoadGrid();
+                    this.gridActionsPanelMat.Visible = true;
+                    this.formActionsPanelMat.Visible = false;
+                    this.formPanelMat.Visible = false;
+
                     break;
                 default:
                     break;
@@ -189,7 +213,7 @@ namespace UI.Web
             this.descripcionTextBox.Enabled = enable;
             this.hsemanalesTextBox.Enabled = enable;
             this.htotalesTextBox.Enabled = enable;
-            this.planTextBox.Enabled = enable;
+            
         }
 
         protected void eliminarLinkButtonMat_Click(object sender, EventArgs e)
@@ -197,6 +221,7 @@ namespace UI.Web
             if (this.IsEntitySelected)
             {
                 this.gridActionsPanelMat.Visible = false;
+                this.formActionsPanelMat.Visible = true;
                 this.formPanelMat.Visible = true;
                 this.FormMode = FormModes.Baja;
                 this.EnableForm(false);
@@ -222,7 +247,7 @@ namespace UI.Web
             this.descripcionTextBox.Text = string.Empty;
             this.hsemanalesTextBox.Text = string.Empty;
             this.htotalesTextBox.Text = string.Empty;
-            this.planTextBox.Text = string.Empty;
+            
         }
 
     }

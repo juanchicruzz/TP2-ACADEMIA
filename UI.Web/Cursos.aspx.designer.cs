@@ -11,205 +11,205 @@ namespace UI.Web
 {
 
 
-    public partial class Materias
+    public partial class Cursos
     {
 
         /// <summary>
-        /// Control gridPanelMat.
+        /// Control gridPanel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel gridPanelMat;
+        protected global::System.Web.UI.WebControls.Panel gridPanel;
 
         /// <summary>
-        /// Control gridViewMat.
+        /// Control gridView.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridViewMat;
+        protected global::System.Web.UI.WebControls.GridView gridView;
 
         /// <summary>
-        /// Control formPanelMat.
+        /// Control formPanel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel formPanelMat;
+        protected global::System.Web.UI.WebControls.Panel formPanel;
 
         /// <summary>
-        /// Control descripcionLabel.
+        /// Control descLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label descripcionLabel;
+        protected global::System.Web.UI.WebControls.Label descLabel;
 
         /// <summary>
-        /// Control descripcionTextBox.
+        /// Control descTB.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox descripcionTextBox;
+        protected global::System.Web.UI.WebControls.TextBox descTB;
 
         /// <summary>
-        /// Control RequiredFieldValidatorMat1.
+        /// Control validadorDesc.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMat1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validadorDesc;
 
         /// <summary>
-        /// Control hsemanalesLabel.
+        /// Control anioLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hsemanalesLabel;
+        protected global::System.Web.UI.WebControls.Label anioLabel;
 
         /// <summary>
-        /// Control hsemanalesTextBox.
+        /// Control anioTB.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hsemanalesTextBox;
+        protected global::System.Web.UI.WebControls.TextBox anioTB;
 
         /// <summary>
-        /// Control RequiredFieldValidatorMat2.
+        /// Control validadorAnio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMat2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validadorAnio;
 
         /// <summary>
-        /// Control htotalesLabel.
+        /// Control cupoLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label htotalesLabel;
+        protected global::System.Web.UI.WebControls.Label cupoLabel;
 
         /// <summary>
-        /// Control htotalesTextBox.
+        /// Control cupoTB.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox htotalesTextBox;
+        protected global::System.Web.UI.WebControls.TextBox cupoTB;
 
         /// <summary>
-        /// Control RequiredFieldValidatorMat3.
+        /// Control RequiredFieldValidator1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMat3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// Control planLabel.
+        /// Control materiaDD.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label planLabel;
+        protected global::System.Web.UI.WebControls.DropDownList materiaDD;
 
         /// <summary>
-        /// Control planesDD.
+        /// Control comisionDD.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList planesDD;
+        protected global::System.Web.UI.WebControls.DropDownList comisionDD;
 
         /// <summary>
-        /// Control gridActionsPanelMat.
+        /// Control gridActionsPanel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel gridActionsPanelMat;
+        protected global::System.Web.UI.WebControls.Panel gridActionsPanel;
 
         /// <summary>
-        /// Control editarLinkButtonMat.
+        /// Control editarLinkButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editarLinkButtonMat;
+        protected global::System.Web.UI.WebControls.LinkButton editarLinkButton;
 
         /// <summary>
-        /// Control eliminarLinkButtonMat.
+        /// Control eliminarLinkButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton eliminarLinkButtonMat;
+        protected global::System.Web.UI.WebControls.LinkButton eliminarLinkButton;
 
         /// <summary>
-        /// Control nuevoLinkButtonMat.
+        /// Control nuevoLinkButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton nuevoLinkButtonMat;
+        protected global::System.Web.UI.WebControls.LinkButton nuevoLinkButton;
 
         /// <summary>
-        /// Control formActionsPanelMat.
+        /// Control formActionsPanel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel formActionsPanelMat;
+        protected global::System.Web.UI.WebControls.Panel formActionsPanel;
 
         /// <summary>
-        /// Control aceptarLinkButtonMat.
+        /// Control aceptarLinkButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton aceptarLinkButtonMat;
+        protected global::System.Web.UI.WebControls.LinkButton aceptarLinkButton;
 
         /// <summary>
-        /// Control cancelarLinkButtonMat.
+        /// Control cancelarLinkButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton cancelarLinkButtonMat;
+        protected global::System.Web.UI.WebControls.LinkButton cancelarLinkButton;
 
         /// <summary>
-        /// Control ValidationSummaryMat1.
+        /// Control ValidationSummary1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummaryMat1;
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
     }
 }

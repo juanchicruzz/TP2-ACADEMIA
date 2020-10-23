@@ -26,8 +26,7 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidatorMat3" runat="server" ControlToValidate="htotalesTextBox" ErrorMessage="Horas totales requeridas">*</asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
-        <asp:TextBox ID="planTextBox" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidatorMat4" runat="server" ControlToValidate="planTextBox" ErrorMessage="Plan requerido">*</asp:RequiredFieldValidator>
+        <asp:DropDownList ID="planesDD" runat="server" DataTextField="Descripcion" DataValueField="ID"></asp:DropDownList>
         <br />
     </asp:Panel>
     <asp:Panel ID="gridActionsPanelMat" runat="server">
