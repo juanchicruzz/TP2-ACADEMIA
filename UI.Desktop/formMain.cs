@@ -111,7 +111,8 @@ namespace UI.Desktop
 
         private void btnNOTAS_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelSubNotas);
+            Notas notas = new Notas();
+            this.openChildForm(notas);
         }
 
         private Form activeForm = null;
@@ -127,6 +128,18 @@ namespace UI.Desktop
             panelMainForms.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void btnAdminPersonas_Click(object sender, EventArgs e)
+        {
+            Personas appPersonas = new Personas();
+            this.openChildForm(appPersonas);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AlumnoInscripciones inscripciones = new AlumnoInscripciones();
+            this.openChildForm(inscripciones);
         }
     }
 }

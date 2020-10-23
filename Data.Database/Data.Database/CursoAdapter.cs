@@ -48,6 +48,45 @@ namespace Data.Database
             return cursos;
         }
 
+        public List<Curso> CursosAñoActual()
+        {
+            List<Curso> cursos = new List<Curso>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCursos = new SqlCommand(@"select c.*, m.desc_materia, com.desc_comision from cursos c 
+                                                        inner join materias m on c.id_materia = m.id_materia 
+                                                        inner join comisiones com on com.id_comision = c.id_comision 
+                                                        where anio_calendario = YEAR(GETDATE()) 
+                                                        AND c.cupo > 0", sqlConn);
+                SqlDataReader drCursos = cmdCursos.ExecuteReader();
+
+                while (drCursos.Read())
+                {
+                    Curso curso = new Curso
+                    {
+                        ID = (int)drCursos["id_curso"],
+                        IDMateria = (int)drCursos["id_materia"],
+                        IDComision = (int)drCursos["id_comision"],
+                        AnioCalendario = (int)drCursos["anio_calendario"],
+                        Cupo = (int)drCursos["cupo"],
+                        Descripcion = (string)drCursos["desc_materia"] + " - " + (string)drCursos["desc_comision"]
+                    };
+                    cursos.Add(curso);
+                }
+                drCursos.Close();
+
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+               new Exception("Error al recuperar lista de Cursos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally { this.CloseConnection(); }
+            return cursos;
+        }
+
         public Curso GetOne(int ID)
         {
             Curso curso = new Curso();

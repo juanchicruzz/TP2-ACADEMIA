@@ -52,18 +52,16 @@ namespace UI.Desktop
         {
             this.Close();
         }
-
-        private void tsbNuevo_Click(object sender, EventArgs e)
+        private void tsbNuevo_Click_1(object sender, EventArgs e)
         {
             UsuarioDesktop formUsuario = new UsuarioDesktop(ApplicationForm.ModoForm.Alta);
             formUsuario.ShowDialog();
             this.Listar();
-
         }
 
-        private void tsbEditar_Click(object sender, EventArgs e)
+        private void tsbEditar_Click_1(object sender, EventArgs e)
         {
-            if (this.dgvUsuarios.SelectedRows.Count>0)
+            if (this.dgvUsuarios.SelectedRows.Count > 0)
             {
                 int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
                 UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Modificacion);
@@ -72,7 +70,7 @@ namespace UI.Desktop
             }
         }
 
-        private void tsbEliminar_Click(object sender, EventArgs e)
+        private void tsbEliminar_Click_1(object sender, EventArgs e)
         {
             if (this.dgvUsuarios.SelectedRows.Count > 0)
             {

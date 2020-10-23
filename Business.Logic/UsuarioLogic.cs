@@ -48,13 +48,13 @@ namespace Business.Logic
             UsuarioData.Save(ip_usuario);
         }
 
-        public bool Login(string user, string pass) 
+        public Usuario Login(string user, string pass) 
         {
             try
             {
-                bool respuesta;
-                respuesta = UsuarioData.Login(user, pass);
-                return respuesta;
+                Usuario usuarioEncontrado;
+                usuarioEncontrado = UsuarioData.Login(user, pass);
+                return usuarioEncontrado;
 
             }
             catch (Exception Ex)

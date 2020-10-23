@@ -33,11 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="FastMember, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FastMember.1.5.0\lib\net461\FastMember.dll</HintPath>
     </Reference>
     <Reference Include="FontAwesome.Sharp, Version=5.13.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.13.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,11 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alumnos.cs">
+    <Compile Include="AlumnoInscripcionDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alumnos.Designer.cs">
-      <DependentUpon>Alumnos.cs</DependentUpon>
+    <Compile Include="AlumnoInscripcionDesktop.Designer.cs">
+      <DependentUpon>AlumnoInscripcionDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="ApplicationForm.cs">
       <SubType>Form</SubType>
@@ -100,6 +106,12 @@
     <Compile Include="EspecialidadesDesktop.Designer.cs">
       <DependentUpon>EspecialidadesDesktop.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlumnoInscripciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnoInscripciones.Designer.cs">
+      <DependentUpon>AlumnoInscripciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="MateriaDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +123,24 @@
     </Compile>
     <Compile Include="Materias.Designer.cs">
       <DependentUpon>Materias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notas.Designer.cs">
+      <DependentUpon>Notas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonaDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonaDesktop.Designer.cs">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personas.Designer.cs">
+      <DependentUpon>Personas.cs</DependentUpon>
     </Compile>
     <Compile Include="PlanDesktop.cs">
       <SubType>Form</SubType>
@@ -124,6 +154,19 @@
     <Compile Include="Planes.Designer.cs">
       <DependentUpon>Planes.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteCursos.Designer.cs">
+      <DependentUpon>ReporteCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportePlanes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportePlanes.Designer.cs">
+      <DependentUpon>ReportePlanes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Session.cs" />
     <Compile Include="UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +193,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AlumnoInscripcionDesktop.resx">
+      <DependentUpon>AlumnoInscripcionDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,17 +217,35 @@
     <EmbeddedResource Include="EspecialidadesDesktop.resx">
       <DependentUpon>EspecialidadesDesktop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AlumnoInscripciones.resx">
+      <DependentUpon>AlumnoInscripciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MateriaDesktop.resx">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Materias.resx">
       <DependentUpon>Materias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Notas.resx">
+      <DependentUpon>Notas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonaDesktop.resx">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personas.resx">
+      <DependentUpon>Personas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlanDesktop.resx">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Planes.resx">
       <DependentUpon>Planes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCursos.resx">
+      <DependentUpon>ReporteCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportePlanes.resx">
+      <DependentUpon>ReportePlanes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>

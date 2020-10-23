@@ -37,10 +37,9 @@
             this.panelSubCalendario = new System.Windows.Forms.Panel();
             this.btnCALENDARIO = new System.Windows.Forms.Button();
             this.panelSubABM = new System.Windows.Forms.Panel();
-            this.btnProfesores = new System.Windows.Forms.Button();
+            this.btnAdminPersonas = new System.Windows.Forms.Button();
             this.btnComisiones = new System.Windows.Forms.Button();
             this.btnCursos = new System.Windows.Forms.Button();
-            this.btnAlumnos = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnMaterias = new System.Windows.Forms.Button();
             this.btnPlanes = new System.Windows.Forms.Button();
@@ -51,7 +50,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panelMainForms = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.PanelMenuLateral.SuspendLayout();
+            this.panelSubExamenes.SuspendLayout();
             this.panelSubABM.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelMainForms.SuspendLayout();
@@ -99,6 +100,7 @@
             // 
             // panelSubExamenes
             // 
+            this.panelSubExamenes.Controls.Add(this.button1);
             this.panelSubExamenes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubExamenes.Location = new System.Drawing.Point(0, 598);
             this.panelSubExamenes.Name = "panelSubExamenes";
@@ -141,10 +143,9 @@
             // 
             // panelSubABM
             // 
-            this.panelSubABM.Controls.Add(this.btnProfesores);
+            this.panelSubABM.Controls.Add(this.btnAdminPersonas);
             this.panelSubABM.Controls.Add(this.btnComisiones);
             this.panelSubABM.Controls.Add(this.btnCursos);
-            this.panelSubABM.Controls.Add(this.btnAlumnos);
             this.panelSubABM.Controls.Add(this.btnUsuarios);
             this.panelSubABM.Controls.Add(this.btnMaterias);
             this.panelSubABM.Controls.Add(this.btnPlanes);
@@ -155,18 +156,19 @@
             this.panelSubABM.Size = new System.Drawing.Size(183, 241);
             this.panelSubABM.TabIndex = 6;
             // 
-            // btnProfesores
+            // btnAdminPersonas
             // 
-            this.btnProfesores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProfesores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProfesores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfesores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfesores.Location = new System.Drawing.Point(0, 210);
-            this.btnProfesores.Name = "btnProfesores";
-            this.btnProfesores.Size = new System.Drawing.Size(183, 30);
-            this.btnProfesores.TabIndex = 9;
-            this.btnProfesores.Text = "Profesores";
-            this.btnProfesores.UseVisualStyleBackColor = true;
+            this.btnAdminPersonas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdminPersonas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdminPersonas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminPersonas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminPersonas.Location = new System.Drawing.Point(0, 180);
+            this.btnAdminPersonas.Name = "btnAdminPersonas";
+            this.btnAdminPersonas.Size = new System.Drawing.Size(183, 30);
+            this.btnAdminPersonas.TabIndex = 9;
+            this.btnAdminPersonas.Text = "Admin Personas";
+            this.btnAdminPersonas.UseVisualStyleBackColor = true;
+            this.btnAdminPersonas.Click += new System.EventHandler(this.btnAdminPersonas_Click);
             // 
             // btnComisiones
             // 
@@ -174,7 +176,7 @@
             this.btnComisiones.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnComisiones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnComisiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnComisiones.Location = new System.Drawing.Point(0, 180);
+            this.btnComisiones.Location = new System.Drawing.Point(0, 150);
             this.btnComisiones.Name = "btnComisiones";
             this.btnComisiones.Size = new System.Drawing.Size(183, 30);
             this.btnComisiones.TabIndex = 8;
@@ -188,26 +190,13 @@
             this.btnCursos.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCursos.Location = new System.Drawing.Point(0, 150);
+            this.btnCursos.Location = new System.Drawing.Point(0, 120);
             this.btnCursos.Name = "btnCursos";
             this.btnCursos.Size = new System.Drawing.Size(183, 30);
             this.btnCursos.TabIndex = 7;
             this.btnCursos.Text = "Cursos";
             this.btnCursos.UseVisualStyleBackColor = true;
             this.btnCursos.Click += new System.EventHandler(this.btnCursos_Click);
-            // 
-            // btnAlumnos
-            // 
-            this.btnAlumnos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAlumnos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlumnos.Location = new System.Drawing.Point(0, 120);
-            this.btnAlumnos.Name = "btnAlumnos";
-            this.btnAlumnos.Size = new System.Drawing.Size(183, 30);
-            this.btnAlumnos.TabIndex = 6;
-            this.btnAlumnos.Text = "Alumnos";
-            this.btnAlumnos.UseVisualStyleBackColor = true;
             // 
             // btnUsuarios
             // 
@@ -336,6 +325,20 @@
             this.Logo.Size = new System.Drawing.Size(173, 173);
             this.Logo.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(183, 30);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Inscripciones";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,6 +353,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.formMain_Shown);
             this.PanelMenuLateral.ResumeLayout(false);
+            this.panelSubExamenes.ResumeLayout(false);
             this.panelSubABM.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -374,13 +378,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnAlumnos;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnMaterias;
         private System.Windows.Forms.Button btnPlanes;
         private System.Windows.Forms.Button btnEspecialidades;
         private System.Windows.Forms.Button btnCursos;
-        private System.Windows.Forms.Button btnProfesores;
         private System.Windows.Forms.Button btnComisiones;
+        private System.Windows.Forms.Button btnAdminPersonas;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -15,86 +15,67 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Planes : Form
+    public partial class AlumnoInscripciones : Form
     {
-        public Planes()
+        public Persona PersonaActual { get; set; }
+        public AlumnoInscripciones()
         {
             InitializeComponent();
         }
 
         public void Listar()
         {
-            PlanLogic pl = new PlanLogic();
-            EspecialidadLogic el = new EspecialidadLogic();
+            Personalogic logicaPersona = new Personalogic();
+            var alumnos = logicaPersona.GetAlumnos();
+            CursoLogic logicaCurso = new CursoLogic();
+            var cursos = logicaCurso.GetCursosAñoActual();
+            AlumnoInscripcionLogic inscripcion = new AlumnoInscripcionLogic();
             try
             {
-                List<Plan> planes = pl.GetAll();
-                List<Especialidad> especialidades = el.GetAll();
-                var query = 
-                        from p in planes
-                        join e in especialidades
-                        on p.IDEspecialidad equals e.ID
-                        select new 
-                        { 
-                            ID = p.ID, 
-                            Descripcion = p.Descripcion, 
-                            Especialidad = e.Descripcion 
-                        };
-                dgvPlan.DataSource = query.ToList();
+                var inscripciones = inscripcion.GetAll();
+                var query = from inscrip in inscripciones
+                            join alumno in alumnos on inscrip.IDAlumno equals alumno.ID
+                            join curso in cursos on inscrip.IDCurso equals curso.ID
+                            select new
+                            {
+                                inscrip.Nota,
+                                inscrip.Condicion,
+                                inscrip.ID,
+                                Alumno = alumno.Apellido + ", " + alumno.Nombre,
+                                Curso = curso.Descripcion
+
+                            };
+                this.dgvInscripciones.DataSource = query.ToList();
             }
             catch (Exception Ex)
             {
                 Exception ExcepcionManejada =
-                new Exception("Error al recuperar lista de Planes", Ex);
-                MessageBox.Show("Error al recuperar lista de Planes", "Planes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new Exception("Error al recuperar lista de alumnos inscriptos", Ex);
+                MessageBox.Show("Error al recuperar lista de alumnos inscriptos", "alumnos inscriptos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ExcepcionManejada;
+
+            }
+            finally
+            {
             }
         }
-
-        private void Planes_Load(object sender, EventArgs e)
-        {
-            Listar();
-        }
-
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            Listar();
-        }
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            PlanDesktop formPlan = new PlanDesktop(ApplicationForm.ModoForm.Alta);
-            formPlan.ShowDialog();
+            AlumnoInscripcionDesktop formInscipciones = new AlumnoInscripcionDesktop(ApplicationForm.ModoForm.Alta, this.PersonaActual);
+            formInscipciones.ShowDialog();
             this.Listar();
         }
-        private void tsbEditar_Click(object sender, EventArgs e)
+
+        private void Inscripciones_Load(object sender, EventArgs e)
         {
-            if (this.dgvPlan.SelectedRows.Count > 0)
-            {
-                int ID = Convert.ToInt32(this.dgvPlan.SelectedRows[0].Cells["ID"].Value);
-                PlanDesktop formPlan = new PlanDesktop(ID, ApplicationForm.ModoForm.Modificacion);
-                formPlan.ShowDialog();
-                this.Listar();
-            }
-        }
-        private void tsbEliminar_Click(object sender, EventArgs e)
-        {
-            if (this.dgvPlan.SelectedRows.Count > 0)
-            {
-                int ID = Convert.ToInt32(this.dgvPlan.SelectedRows[0].Cells["ID"].Value);
-                PlanDesktop formPlan = new PlanDesktop(ID, ApplicationForm.ModoForm.Baja);
-                formPlan.ShowDialog();
-                this.Listar();
-            }
+            Personalogic logica = new Personalogic();
+            this.PersonaActual = logica.GetOne(Session.Usuario.IDPersona.Value);
+            Listar();
         }
 
-        private void tsbExportar_Click(object sender, EventArgs e)
+        private void tsbPDF_Click(object sender, EventArgs e)
         {
-            if (dgvPlan.Rows.Count > 0)
+            if (dgvInscripciones.Rows.Count > 0)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
@@ -118,18 +99,18 @@ namespace UI.Desktop
                     {
                         try
                         {
-                            PdfPTable pdfTable = new PdfPTable(dgvPlan.Columns.Count);
+                            PdfPTable pdfTable = new PdfPTable(dgvInscripciones.Columns.Count);
                             pdfTable.DefaultCell.Padding = 3;
                             pdfTable.WidthPercentage = 100;
                             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
 
-                            foreach (DataGridViewColumn column in dgvPlan.Columns)
+                            foreach (DataGridViewColumn column in dgvInscripciones.Columns)
                             {
                                 PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
                                 pdfTable.AddCell(cell);
                             }
 
-                            foreach (DataGridViewRow row in dgvPlan.Rows)
+                            foreach (DataGridViewRow row in dgvInscripciones.Rows)
                             {
                                 foreach (DataGridViewCell cell in row.Cells)
                                 {
@@ -147,7 +128,7 @@ namespace UI.Desktop
                                 stream.Close();
                             }
 
-                            MessageBox.Show("Planes exportados exitosamente", "Info");
+                            MessageBox.Show("Data Exported Successfully !!!", "Info");
                         }
                         catch (Exception ex)
                         {
@@ -158,9 +139,9 @@ namespace UI.Desktop
             }
             else
             {
-                MessageBox.Show("No existen planes para exportar", "Info");
+                MessageBox.Show("No Record To Export !!!", "Info");
             }
-
         }
+
     }
 }

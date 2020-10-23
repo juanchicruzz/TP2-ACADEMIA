@@ -36,6 +36,22 @@ namespace Business.Logic
             Curso curso = cursoAdapter.GetOne(ID);
             return curso;
         }
+
+        public List<Curso> GetCursosAñoActual()
+        {
+            try
+            {
+                List<Curso> cursos = cursoAdapter.CursosAñoActual();
+                return cursos;
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar lista de Cursos", Ex);
+                throw ExcepcionManejada;
+            }
+        }
+
         public void Delete(int ID)
         {
             cursoAdapter.Delete(ID);

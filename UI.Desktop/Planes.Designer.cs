@@ -41,6 +41,7 @@
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.tsbExportar = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -153,10 +154,11 @@
             this.tsPlan.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
-            this.tsbEliminar});
+            this.tsbEliminar,
+            this.tsbExportar});
             this.tsPlan.Location = new System.Drawing.Point(11, 0);
             this.tsPlan.Name = "tsPlan";
-            this.tsPlan.Size = new System.Drawing.Size(81, 25);
+            this.tsPlan.Size = new System.Drawing.Size(135, 25);
             this.tsPlan.TabIndex = 2;
             // 
             // tsbNuevo
@@ -187,6 +189,16 @@
             this.tsbEliminar.Name = "tsbEliminar";
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsbEliminar.Text = "Eliminar";
+            // 
+            // tsbExportar
+            // 
+            this.tsbExportar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbExportar.Image = ((System.Drawing.Image)(resources.GetObject("tsbExportar.Image")));
+            this.tsbExportar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbExportar.Name = "tsbExportar";
+            this.tsbExportar.Size = new System.Drawing.Size(23, 22);
+            this.tsbExportar.Text = "Exportar";
+            this.tsbExportar.Click += new System.EventHandler(this.tsbExportar_Click);
             // 
             // Planes
             // 
@@ -224,5 +236,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
+        private System.Windows.Forms.ToolStripButton tsbExportar;
     }
 }

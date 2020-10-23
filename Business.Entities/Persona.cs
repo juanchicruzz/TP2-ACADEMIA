@@ -12,7 +12,7 @@ namespace Business.Entities
         {
             Alumno = 1,
             Profesor = 2,
-            Administrativo= 3
+            Administrativo = 3
         }
 
         private string _Apellido;
