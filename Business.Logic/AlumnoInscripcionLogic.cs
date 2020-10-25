@@ -51,5 +51,10 @@ namespace Business.Logic
                 throw ex;
             }
         }
+
+        internal bool GetAlumnoInscriptoPorCurso(int idCurso)
+        {
+            return inscripcionAdapter.ExisteAlumnoInscriptoPorCurso(idCurso);
+        }
     }
 }

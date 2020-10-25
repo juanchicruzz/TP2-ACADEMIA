@@ -118,7 +118,14 @@ namespace UI.Desktop
         public virtual void Eliminar()
         {
             CursoLogic c = new CursoLogic();
-            c.Delete(cursoActual.ID);
+            try
+            {
+                c.Delete(cursoActual.ID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public virtual void GuardarCambios()
         {

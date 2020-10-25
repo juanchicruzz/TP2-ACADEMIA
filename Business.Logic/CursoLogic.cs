@@ -54,11 +54,22 @@ namespace Business.Logic
 
         public void Delete(int ID)
         {
+            if(this.ExisteAlumnoInscripto(ID))
+            {
+                throw new Exception("No se puede eliminar, existe al menos un alumno inscripto.");
+            }
             cursoAdapter.Delete(ID);
         }
         public void Save(Curso curso)
         {
             cursoAdapter.Save(curso);
+        }
+
+        public bool ExisteAlumnoInscripto(int idCurso)
+        {
+            AlumnoInscripcionLogic logica = new AlumnoInscripcionLogic();
+            return logica.GetAlumnoInscriptoPorCurso(idCurso);
+            
         }
     }
 }
