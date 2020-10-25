@@ -82,6 +82,10 @@ namespace Data.Database
                     usr.Habilitado = (bool)drUsuarios["habilitado"];
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];
+                    if (drUsuarios["id_persona"] != System.DBNull.Value)
+                    {
+                        usr.IDPersona = (int?)drUsuarios["id_persona"];
+                    }
                     if (drUsuarios["email"] != System.DBNull.Value)
                     {
                         usr.EMail = (string)drUsuarios["email"];
@@ -126,7 +130,10 @@ namespace Data.Database
                     usr.Habilitado = (bool)drUsuarios["habilitado"];
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];
-                    usr.IDPersona = (int?)drUsuarios["id_persona"];
+                    if (drUsuarios["id_persona"] != System.DBNull.Value)
+                    {
+                        usr.IDPersona = (int?)drUsuarios["id_persona"];
+                    }
                     if (drUsuarios["email"] != System.DBNull.Value)
                     {
                         usr.EMail = (string)drUsuarios["email"];
@@ -260,7 +267,10 @@ namespace Data.Database
                     usr.Habilitado = (bool)drClave["habilitado"];
                     usr.Nombre = (string)drClave["nombre"];
                     usr.Apellido = (string)drClave["apellido"];
-                    usr.IDPersona = (int?)drClave["id_persona"];
+                    if (drClave["id_persona"] != System.DBNull.Value)
+                    {
+                        usr.IDPersona = (int?)drClave["id_persona"];
+                    }
                     if (drClave["email"] != System.DBNull.Value)
                     {
                         usr.EMail = (string)drClave["email"];
