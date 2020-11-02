@@ -183,7 +183,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("UPDATE usuarios SET nombre_usuario=@nombre_usuario, clave=@clave, habilitado=@habilitado, nombre=@nombre, apellido=@apellido, email=@email WHERE id_usuario=@id", sqlConn);
+                SqlCommand cmdSave = new SqlCommand("UPDATE usuarios SET nombre_usuario=@nombre_usuario, clave=@clave, habilitado=@habilitado, nombre=@nombre, apellido=@apellido, email=@email, id_persona=@id_persona WHERE id_usuario=@id", sqlConn);
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar,50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar,50).Value = usuario.Clave;
@@ -191,6 +191,7 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.EMail;
+                cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.IDPersona;
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -210,7 +211,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("INSERT into usuarios (nombre_usuario,clave,habilitado,nombre,apellido,email) VALUES(@nombre_usuario, @clave, @habilitado, @nombre, @apellido, @email) Select @@identity", sqlConn);
+                SqlCommand cmdSave = new SqlCommand("INSERT into usuarios (nombre_usuario,clave,habilitado,nombre,apellido,email,id_persona) VALUES(@nombre_usuario, @clave, @habilitado, @nombre, @apellido, @email,@id_persona) Select @@identity", sqlConn);
                 
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
@@ -218,6 +219,7 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.EMail;
+                cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.IDPersona;
                 usuario.ID = decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
                 
             }

@@ -129,6 +129,8 @@
     <Content Include="imagenes\Academia.png" />
     <Content Include="imagenes\fondo.jpg" />
     <Content Include="Comisiones.aspx" />
+    <Content Include="InscripcionAlumno.aspx" />
+    <Content Include="Personas.aspx" />
     <Content Include="Planes.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -187,6 +189,20 @@
     </Compile>
     <Compile Include="Comisiones.aspx.designer.cs">
       <DependentUpon>Comisiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InscripcionAlumno.aspx.cs">
+      <DependentUpon>InscripcionAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InscripcionAlumno.aspx.designer.cs">
+      <DependentUpon>InscripcionAlumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Personas.aspx.cs">
+      <DependentUpon>Personas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Personas.aspx.designer.cs">
+      <DependentUpon>Personas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Planes.aspx.cs">
       <DependentUpon>Planes.aspx</DependentUpon>

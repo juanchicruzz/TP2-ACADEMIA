@@ -59,6 +59,7 @@ namespace UI.Desktop
             this.txtEmail.Text = UsuarioActual.EMail;
             this.chkHabilitado.Checked = UsuarioActual.Habilitado;
             this.txtID.Text = UsuarioActual.ID.ToString();
+            this.tbPersona.Text = UsuarioActual.IDPersona.ToString();
         }
         public virtual void MapearADatos()
         {
@@ -72,6 +73,7 @@ namespace UI.Desktop
             UsuarioActual.NombreUsuario = this.txtUsuario.Text;
             UsuarioActual.EMail = this.txtEmail.Text;
             UsuarioActual.Habilitado = this.chkHabilitado.Checked;
+            UsuarioActual.IDPersona = Convert.ToInt32( this.tbPersona.Text);
             switch (Modo)
             {
                 case ModoForm.Alta:
