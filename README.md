@@ -1,3 +1,1 @@
-# TP2-ACADEMIA
-
-desactivar persona adapter en data para q corra el programa, aun trabajo en esa clase en mi rama//casagrande juan//
+YA DEBERIA ESTAR TODO FUNCIONAL, TRABAJA CON PERMISOS DE TIPO DE PERSONA, TESTEAR Y AVISAR, RECORDAR CAMBIAR CONNECTION STRING, VOY A TRABAJAR EN LO VISUAL HASTA ENCONTRAR ERROR FUNCIONAL.
