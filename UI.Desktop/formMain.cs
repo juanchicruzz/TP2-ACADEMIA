@@ -16,13 +16,12 @@ namespace UI.Desktop
         {
             InitializeComponent();
             customizeDesing();
+
         }
         private void customizeDesing()
         {
             panelSubABM.Visible = false;
             panelSubCalendario.Visible = false;
-            panelSubExamenes.Visible = false;
-            panelSubNotas.Visible = false;
         }
         private void homeButton_Click(object sender, EventArgs e) 
         {
@@ -33,8 +32,6 @@ namespace UI.Desktop
         {
             if (panelSubABM.Visible) panelSubABM.Visible = false;
             if (panelSubCalendario.Visible) panelSubCalendario.Visible = false;
-            if (panelSubExamenes.Visible) panelSubExamenes.Visible = false;
-            if (panelSubNotas.Visible) panelSubNotas.Visible = false;
         }
         private void showSubMenu(Panel subMenu)
         {
@@ -50,10 +47,19 @@ namespace UI.Desktop
         }
         private void formMain_Shown(object sender, EventArgs e)
         {
+            btnABM.Visible = false;
             formLogin appLogin = new formLogin();
             if (appLogin.ShowDialog() != DialogResult.OK)
             {
                 this.Dispose();
+                
+            }
+            else
+            {
+                if (Session.Persona.TipoPersona == Business.Entities.Persona.TiposPersona.Administrativo)
+                {
+                    btnABM.Visible = true;
+                }
             }
         }
 
@@ -97,6 +103,23 @@ namespace UI.Desktop
         private void ABM_Click(object sender, EventArgs e)
         {
             showSubMenu(panelSubABM);
+            //switch (Session.Persona.TipoPersona)
+            //{
+            //    case Business.Entities.Persona.TiposPersona.Alumno:
+            //        {
+            //            btnABM.Visible = false;
+            //        }
+            //        break;
+            //    case Business.Entities.Persona.TiposPersona.Profesor:
+            //        {
+
+            //        }
+            //        break;
+            //    case Business.Entities.Persona.TiposPersona.Administrativo:
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
         private void btnCALENDARIO_Click(object sender, EventArgs e)
@@ -106,7 +129,8 @@ namespace UI.Desktop
 
         private void btnEXAMENES_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelSubExamenes);
+            AlumnoInscripciones inscripciones = new AlumnoInscripciones();
+            this.openChildForm(inscripciones);
         }
 
         private void btnNOTAS_Click(object sender, EventArgs e)
@@ -138,8 +162,8 @@ namespace UI.Desktop
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AlumnoInscripciones inscripciones = new AlumnoInscripciones();
-            this.openChildForm(inscripciones);
+            CambioContraseña appContraseña = new CambioContraseña();
+            this.openChildForm(appContraseña);
         }
     }
 }

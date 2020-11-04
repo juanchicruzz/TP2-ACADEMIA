@@ -59,5 +59,10 @@ namespace Business.Logic
         {
             personaAdapter.Delete(ID);
         }
+
+        public Persona GetOneByLegajo(string legajo)
+        {
+            return personaAdapter.GetOneByLegajo(legajo);
+        }
     }
 }

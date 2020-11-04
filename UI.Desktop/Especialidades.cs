@@ -3,11 +3,12 @@ using System.Windows.Forms;
 using Business.Logic;
 namespace UI.Desktop
 {
-    public partial class Especialidades : Form
+    public partial class Especialidades : FormButtons
     {
         public Especialidades()
         {
             InitializeComponent();
+            this.SetearPermisos("Especialidades");
         }
         public void Listar()
         {
@@ -44,14 +45,14 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void tsbNuevo_Click(object sender, EventArgs e)
+        public override void tsbNuevo_Click(object sender, EventArgs e)
         {
             EspecialidadesDesktop formEsp = new EspecialidadesDesktop(ApplicationForm.ModoForm.Alta);
             formEsp.ShowDialog();
             this.Listar();
         }
 
-        private void tsbEditar_Click(object sender, EventArgs e)
+        public override void tsbEditar_Click(object sender, EventArgs e)
         {
             if (this.dgvEspecialidades.SelectedRows.Count > 0)
             {
@@ -60,8 +61,12 @@ namespace UI.Desktop
                 formEsp.ShowDialog();
                 this.Listar();
             }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila en la grilla para poder editar");
+            }
         }
-        private void tsbEliminar_Click(object sender, EventArgs e)
+        public override void tsbEliminar_Click(object sender, EventArgs e)
         {
             if (this.dgvEspecialidades.SelectedRows.Count > 0)
             {

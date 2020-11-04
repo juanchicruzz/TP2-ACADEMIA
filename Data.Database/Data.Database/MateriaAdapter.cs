@@ -64,6 +64,7 @@ namespace Data.Database
                     materia.HSTotales = (int)drMateria["hs_totales"];
                     materia.IDPlan = (int)drMateria["id_plan"];
                 }
+                drMateria.Close();
             }
             catch (Exception Ex)
             {

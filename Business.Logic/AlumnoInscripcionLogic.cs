@@ -52,6 +52,16 @@ namespace Business.Logic
             }
         }
 
+        public void Update (AlumnoInscripcion inscripcionActual)
+        {
+            inscripcionAdapter.Update(inscripcionActual);
+        }
+
+        public List<AlumnoInscripcion> GetAllById(int id)
+        {
+            return inscripcionAdapter.GetAllById(id);
+        }
+
         internal bool GetAlumnoInscriptoPorCurso(int idCurso)
         {
             return inscripcionAdapter.ExisteAlumnoInscriptoPorCurso(idCurso);

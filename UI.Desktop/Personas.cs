@@ -7,12 +7,13 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Personas : ApplicationForm
+    public partial class Personas : FormButtons
     {
         private Form _activeForm = null;
         public Personas()
         {
             InitializeComponent();
+            this.SetearPermisos("Personas");
         }
         public void Listar()
         {
@@ -63,14 +64,14 @@ namespace UI.Desktop
         {
             Listar();
         }
-        private void tsbNuevo_Click(object sender, EventArgs e)
+        public override void tsbNuevo_Click(object sender, EventArgs e)
         {
             PersonaDesktop formPersona = new PersonaDesktop(ApplicationForm.ModoForm.Alta);
             formPersona.ShowDialog();
             this.Listar();
         }
 
-        private void tsbEditar_Click(object sender, EventArgs e)
+        public override void tsbEditar_Click(object sender, EventArgs e)
         {
             if (this.dgvPersonas.SelectedRows.Count > 0)
             {
@@ -79,9 +80,13 @@ namespace UI.Desktop
                 formPersona.ShowDialog();
                 this.Listar();
             }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila en la grilla para poder editar");
+            }
         }
 
-        private void tsbEliminar_Click(object sender, EventArgs e)
+        public override void tsbEliminar_Click(object sender, EventArgs e)
         {
             if (this.dgvPersonas.SelectedRows.Count > 0)
             {

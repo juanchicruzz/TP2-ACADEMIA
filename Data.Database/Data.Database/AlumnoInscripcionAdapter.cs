@@ -64,7 +64,7 @@ namespace Data.Database
                     ins.IDAlumno = (int)drInscripcion["id_alumno"];
                     ins.IDCurso = (int)drInscripcion["id_curso"];
                     ins.Condicion = (string)drInscripcion["condicion"];
-                    ins.Nota = (int)drInscripcion["nota"];
+                    ins.Nota = drInscripcion["nota"] != System.DBNull.Value ? (int?)drInscripcion["nota"] : default(int?);
 
 
                 }
@@ -78,6 +78,42 @@ namespace Data.Database
             }
             finally { this.CloseConnection(); }
             return ins;
+        }
+
+        public List<AlumnoInscripcion> GetAllById(int id)
+        {
+            List<AlumnoInscripcion> inscripciones = new List<AlumnoInscripcion>();
+
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdInscripcion = new SqlCommand("Select * from alumnos_inscripciones where id_curso=@id", sqlConn);
+                cmdInscripcion.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                SqlDataReader drInscripcion = cmdInscripcion.ExecuteReader();
+
+                while (drInscripcion.Read())
+                {
+                    AlumnoInscripcion inscripcion = new AlumnoInscripcion
+                    {
+                        ID = (int)drInscripcion["id_inscripcion"],
+                        Condicion = (string)drInscripcion["condicion"],
+                        IDAlumno = (int)drInscripcion["id_alumno"],
+                        IDCurso = (int)drInscripcion["id_curso"],
+                        Nota = drInscripcion["nota"] != System.DBNull.Value ? (int?)drInscripcion["nota"] : default(int?)
+                    };
+                    inscripciones.Add(inscripcion);
+                }
+                drInscripcion.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+               new Exception("Error al recuperar lista de Alumnos Inscriptos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally { this.CloseConnection(); }
+            return inscripciones;
         }
 
         public bool ExisteAlumnoInscriptoPorCurso(int idCurso)

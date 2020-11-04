@@ -15,6 +15,7 @@ namespace UI.Desktop
 {
     public partial class UsuarioDesktop : ApplicationForm
     {
+        public Persona Persona { get; set; }
         public UsuarioDesktop()
         {
             InitializeComponent();
@@ -52,7 +53,7 @@ namespace UI.Desktop
 
         public virtual void MapearDeDatos()
         {
-            this.txtNombre.Text = UsuarioActual.Nombre;
+            this.txtNombreUsuario.Text = UsuarioActual.Nombre;
             this.txtApellido.Text = UsuarioActual.Apellido;
             this.txtClave.Text = UsuarioActual.Clave;
             this.txtUsuario.Text = UsuarioActual.NombreUsuario;
@@ -67,11 +68,12 @@ namespace UI.Desktop
                 UsuarioActual = new Usuario();
             }
             UsuarioActual.Apellido = this.txtApellido.Text;
-            UsuarioActual.Nombre = this.txtNombre.Text;
+            UsuarioActual.Nombre = this.txtNombreUsuario.Text;
             UsuarioActual.Clave = this.txtClave.Text;
             UsuarioActual.NombreUsuario = this.txtUsuario.Text;
             UsuarioActual.EMail = this.txtEmail.Text;
             UsuarioActual.Habilitado = this.chkHabilitado.Checked;
+            UsuarioActual.IDPersona = Persona.ID;
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -97,7 +99,7 @@ namespace UI.Desktop
         }
         public virtual bool Validar() 
         {
-            if (string.IsNullOrWhiteSpace(this.txtApellido.Text) || string.IsNullOrWhiteSpace(this.txtNombre.Text) || string.IsNullOrWhiteSpace(this.txtUsuario.Text))
+            if (string.IsNullOrWhiteSpace(this.txtApellido.Text) || string.IsNullOrWhiteSpace(this.txtNombreUsuario.Text) || string.IsNullOrWhiteSpace(this.txtUsuario.Text) || string.IsNullOrWhiteSpace(this.txtLegajo.Text))
             {
                 Notificar("Error", "Debe completar todos los campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -116,6 +118,20 @@ namespace UI.Desktop
             {
                 Notificar("Error", "El Email no es valido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+            else if (!string.IsNullOrEmpty(this.txtLegajo.Text))
+            {
+                Personalogic logica = new Personalogic();
+                Persona = logica.GetOneByLegajo(txtLegajo.Text);
+                if (Persona==null)
+                {
+                    Notificar("Error", "La persona no existe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
             else { return true; }
 
@@ -164,5 +180,6 @@ botones, MessageBoxIcon icono)
         {
             Close();
         }
+
     }
 }

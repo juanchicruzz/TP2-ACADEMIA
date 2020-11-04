@@ -2,24 +2,20 @@
 using Business.Logic;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Comisiones : ApplicationForm
+    public partial class Comisiones : FormButtons
     {
         private Form activeForm = null;
         public Comisiones()
         {
             InitializeComponent();
+            this.SetearPermisos("Comisiones");
         }
-        private void tsbEditar_Click(object sender, EventArgs e)
+        public override void tsbEditar_Click(object sender, EventArgs e)
         {
             if (this.dgvComisones.SelectedRows.Count > 0)
             {
@@ -28,8 +24,12 @@ namespace UI.Desktop
                 formComision.ShowDialog();
                 this.Listar();
             }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila en la grilla para poder editar");
+            }
         }
-        private void tsbEliminar_Click(object sender, EventArgs e)
+        public override void tsbEliminar_Click(object sender, EventArgs e)
         {
             if (this.dgvComisones.SelectedRows.Count > 0)
             {
@@ -88,7 +88,7 @@ namespace UI.Desktop
             Listar();
         }
 
-        private void tsbNuevo_Click_1(object sender, EventArgs e)
+        public override void tsbNuevo_Click(object sender, EventArgs e)
         {
             ComisionDesktop formComision = new ComisionDesktop(ApplicationForm.ModoForm.Alta);
             formComision.ShowDialog();

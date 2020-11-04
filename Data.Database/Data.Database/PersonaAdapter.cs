@@ -47,6 +47,45 @@ namespace Data.Database
             return persona;
         }
 
+        public Persona GetOneByLegajo(string legajo)
+        {
+            Persona persona = new Persona();
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdPersona = new SqlCommand("Select * from personas where legajo = @legajo", sqlConn);
+                cmdPersona.Parameters.Add("@legajo", SqlDbType.Int).Value = legajo;
+                SqlDataReader drPersona = cmdPersona.ExecuteReader();
+
+                if (drPersona.Read())
+                {
+                    persona.ID = (int)drPersona["id_persona"];
+                    persona.Nombre = (string)drPersona["nombre"];
+                    persona.Apellido = (string)drPersona["apellido"];
+                    persona.Direccion = (string)drPersona["direccion"];
+                    persona.Email = (string)drPersona["email"];
+                    persona.Telefono = (string)drPersona["telefono"];
+                    persona.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
+                    persona.Legajo = (int)drPersona["legajo"];
+                    persona.TipoPersona = (Persona.TiposPersona)(int)drPersona["tipo_persona"];
+                    persona.IDPlan = (int)drPersona["id_plan"];
+                }
+                else
+                {
+                    persona = null;
+                }
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+               new Exception("Error al recuperar datos de la persona", Ex);
+                throw ExcepcionManejada;
+            }
+            finally { this.CloseConnection(); }
+            return persona;
+        }
+
         public List<Persona> GetAlumnos()
         {
             List<Persona> personas = new List<Persona>();
