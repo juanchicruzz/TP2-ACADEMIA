@@ -26,6 +26,11 @@ namespace Business.Logic
                 throw ExcepcionManejada;
             }
         }
+
+        //public List<AlumnoInscripcion> GetAllAlumnos(int id)
+        //{
+        //   return inscripcionAdapter.GetAllAlumnos(id);
+        //}
         public AlumnoInscripcion GetOne(int ID)
         {
             AlumnoInscripcion inscripcion = inscripcionAdapter.GetOne(ID);

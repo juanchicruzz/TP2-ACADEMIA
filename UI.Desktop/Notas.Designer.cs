@@ -50,7 +50,11 @@
             this.lbMensaje = new System.Windows.Forms.Label();
             this.lbMensaje1 = new System.Windows.Forms.Label();
             this.lbMensaje2 = new System.Windows.Forms.Label();
+            this.dgvAlumnoSolo = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnoSolo)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -254,15 +258,43 @@
             this.lbMensaje2.ForeColor = System.Drawing.Color.Red;
             this.lbMensaje2.Location = new System.Drawing.Point(12, 51);
             this.lbMensaje2.Name = "lbMensaje2";
-            this.lbMensaje2.Size = new System.Drawing.Size(102, 13);
+            this.lbMensaje2.Size = new System.Drawing.Size(72, 13);
             this.lbMensaje2.TabIndex = 18;
-            this.lbMensaje2.Text = "la grilla con alumnos";
+            this.lbMensaje2.Text = "la informacion";
+            // 
+            // dgvAlumnoSolo
+            // 
+            this.dgvAlumnoSolo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAlumnoSolo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dgvAlumnoSolo.Location = new System.Drawing.Point(62, 179);
+            this.dgvAlumnoSolo.Name = "dgvAlumnoSolo";
+            this.dgvAlumnoSolo.Size = new System.Drawing.Size(404, 150);
+            this.dgvAlumnoSolo.TabIndex = 19;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Nota";
+            this.Column1.Frozen = true;
+            this.Column1.HeaderText = "Nota";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Condicion";
+            this.Column2.Frozen = true;
+            this.Column2.HeaderText = "Condicion";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Notas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 442);
+            this.Controls.Add(this.dgvAlumnoSolo);
             this.Controls.Add(this.lbMensaje2);
             this.Controls.Add(this.lbMensaje1);
             this.Controls.Add(this.lbMensaje);
@@ -283,6 +315,7 @@
             this.Name = "Notas";
             this.Text = "Notas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnoSolo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,5 +345,8 @@
         private System.Windows.Forms.Label lbMensaje;
         private System.Windows.Forms.Label lbMensaje1;
         private System.Windows.Forms.Label lbMensaje2;
+        private System.Windows.Forms.DataGridView dgvAlumnoSolo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

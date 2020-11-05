@@ -23,9 +23,9 @@ namespace UI.Desktop
         {
             InitializeComponent();
             Visibilidad();
-            MapearCursos();
+                MapearCursos();            
+                       
         }
-
         public void Visibilidad()
         {
             NoCargar = false;
@@ -34,10 +34,22 @@ namespace UI.Desktop
             btnCancelar.Visible = false;
             lbCurso.Visible = false;
             lbMensaje.Visible = false;
+            if (Session.Persona.TipoPersona==Persona.TiposPersona.Alumno)
+            {
+                lbApellido.Visible = false;
+                lbNombre.Visible = false;
+                lbNota.Visible = false;
+                label2.Visible = false;
+                txtApellido.Visible = false;
+                txtNombre.Visible = false;
+                txtCondicion.Visible = false;
+                txtNota.Visible = false;
+            }
 
         }
         public void MapearCursos()
         {
+
             CursoLogic cursoLogic = new CursoLogic();
             cbCurso.DataSource= cursoLogic.GetCursosAñoActual();
             cbCurso.SelectedIndex = -1;
@@ -55,6 +67,19 @@ namespace UI.Desktop
             {
                 
                 List<AlumnoInscripcion> listaInscripciones = alumnoInscripcionLogica.GetAllById((int)this.cbCurso.SelectedValue);
+                if (Session.Persona.TipoPersona==Persona.TiposPersona.Alumno)
+                {
+                    dgvAlumnoSolo.AutoGenerateColumns = false;
+                    var lista = from a in listaInscripciones
+                                where a.IDAlumno == Session.Persona.ID
+                                select a;
+                    dgvAlumnoSolo.DataSource = lista.ToList();
+                    lbMensaje1.Visible = false;
+                    lbMensaje2.Visible = false;
+                }
+                else 
+                {
+                dgvAlumnoSolo.Visible = false;
                 dgvCursos.Visible = true;
                 btnGuardar.Visible = true;
                 btnCancelar.Visible = true;
@@ -77,8 +102,10 @@ namespace UI.Desktop
                                 ID = a.ID
                             };
                 dgvCursos.DataSource = query.ToList();
+                }
 
             }
+
         }
 
         private void dgvCursos_RowEnter(object sender, DataGridViewCellEventArgs e)
