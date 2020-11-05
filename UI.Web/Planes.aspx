@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Planes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Planes.aspx.cs" Inherits="UI.Web.Planes" %>
+﻿<%@ Page Title="Planes" Language="C#" MasterPageFile="~/Site.Master"  EnableEventValidation = "false" AutoEventWireup="true" CodeBehind="Planes.aspx.cs" Inherits="UI.Web.Planes" %>
 <asp:Content ID="ContentPla" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
     <asp:Panel ID="gridPanelPla" runat="server" >
         <asp:GridView ID="gridViewPla" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnLoad="Page_Load" OnSelectedIndexChanged="gridViewPla_SelectedIndexChanged">
@@ -8,7 +8,9 @@
             <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
         </Columns>
         </asp:GridView>
+        
     </asp:Panel>
+    <asp:Button runat="server" ID="btnExportar" Text="Exportar" OnClick="btnExportar_Click" />
     <asp:Panel ID="formPanelPla" Visible= "false" runat="server" Width="436px">
         <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
         <asp:TextBox ID="descripcionTextBox" runat="server">

@@ -8,6 +8,11 @@ using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
+using System.IO;
+using iTextSharp.text.html.simpleparser;
+using System.Web;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace UI.Web
 {
@@ -71,10 +76,10 @@ namespace UI.Web
             this.anioTB.Text = this.Entity.AnioCalendario.ToString();
             this.LoadCombo();
             materiaDD.ClearSelection(); comisionDD.ClearSelection();
-            ListItem listacomi = comisionDD.Items.FindByValue(this.Entity.IDComision.ToString());
+            System.Web.UI.WebControls.ListItem listacomi = comisionDD.Items.FindByValue(this.Entity.IDComision.ToString());
             if (listacomi != null) { comisionDD.ClearSelection(); listacomi.Selected = true; }
 
-            ListItem listamateria = materiaDD.Items.FindByValue(this.Entity.IDMateria.ToString());
+            System.Web.UI.WebControls.ListItem listamateria = materiaDD.Items.FindByValue(this.Entity.IDMateria.ToString());
             if (listamateria != null) { materiaDD.ClearSelection(); listamateria.Selected = true; }
             
         }
@@ -250,6 +255,38 @@ namespace UI.Web
             }
             
             
+        }
+
+        private void ExportGridToPDF()
+        {
+            gridView.Columns[6].Visible = false;
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "attachment;filename=ReporteCursos.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            gridView.RenderControl(hw);
+            StringReader sr = new StringReader(sw.ToString());
+            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            pdfDoc.AddTitle("Cursos");
+            htmlparser.Parse(sr);
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
+            Response.End();
+            gridView.AllowPaging = true;
+            gridView.Columns[6].Visible = true;
+            gridView.DataBind();
+        }
+        public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
+        {
+            return;
+        }
+        protected void btnExportar_Click(object sender, EventArgs e)
+        {
+            ExportGridToPDF();
         }
     }
 }

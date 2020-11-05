@@ -7,6 +7,12 @@ using Microsoft.Ajax.Utilities;
 using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Linq;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.Windows.Forms;
+using System.IO;
+using iTextSharp.text.html.simpleparser;
+using System.Web;
 
 namespace UI.Web
 {
@@ -214,5 +220,40 @@ namespace UI.Web
             this.especialidadTextBox.Text = string.Empty;
         }
 
+
+        private void ExportGridToPDF()
+        {
+            gridViewPla.Columns[2].Visible = false;
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "attachment;filename=ReportePlanes.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            gridViewPla.RenderControl(hw);
+            StringReader sr = new StringReader(sw.ToString());
+            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            pdfDoc.AddTitle("Planes");
+            htmlparser.Parse(sr);
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
+            Response.End();
+            gridViewPla.AllowPaging = true;
+            gridViewPla.Columns[2].Visible = true;
+            gridViewPla.DataBind();
+        }
+
+
+        protected void btnExportar_Click(object sender, EventArgs e)
+        {
+            ExportGridToPDF();
+        }
+
+        public override void VerifyRenderingInServerForm(System.Web.UI.Control control)
+        {
+            return;
+        }
     }
 }

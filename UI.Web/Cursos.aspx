@@ -13,6 +13,7 @@
             </Columns>
 
         </asp:GridView>
+        <asp:Button ID="btnExportar" runat="server" Text="Exportar" OnClick="btnExportar_Click" />
     </asp:Panel>
     <asp:Panel ID="formPanel" Visible= "false" runat="server" Width="436px">
         <asp:Label ID="descLabel" runat="server" Text="Descripción"></asp:Label>

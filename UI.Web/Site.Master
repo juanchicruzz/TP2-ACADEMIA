@@ -8,6 +8,7 @@
 	<link href="estilos.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>  
+	
 	<header id="inicio">
 		<h1 id="titulo">Academia</h1>
 	</header>
@@ -20,6 +21,7 @@
 			<li><a href="Planes.aspx">Planes</a></li>
 			<li><a href="Comisiones.aspx">Comisiones</a></li>
 			<li><a href="Cursos.aspx">Cursos</a></li>
+			<li><a href="CargarNotas.aspx">Notas</a></li>
 		</ul>
 	</nav>
 	</asp:panel>
