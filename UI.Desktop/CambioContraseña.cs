@@ -34,7 +34,8 @@ namespace UI.Desktop
                 {
                     UsuarioLogic logica = new UsuarioLogic();
                     Session.Usuario.Clave = Convert.ToString(txtContraseñaNueva.Text);
-                    logica.Update(Session.Usuario);
+                    Session.Usuario.State = BusinessEntity.States.Modified;
+                    logica.Save(Session.Usuario);
                 }
                 else
                 {

@@ -48,10 +48,10 @@ namespace Business.Logic
             UsuarioData.Save(ip_usuario);
         }
 
-        public void Update(Usuario user)
-        {
-            UsuarioData.Update(user);
-        }
+        //public void Update(Usuario user)
+        //{
+        //    UsuarioData.Update(user);
+        //}
 
         public Usuario Login(string user, string pass) 
         {
