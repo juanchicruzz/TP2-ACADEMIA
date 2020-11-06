@@ -27,10 +27,8 @@ namespace UI.Desktop
                 this.txtNota.Visible = false;
                 this.lblCondicion.Visible = false;
                 this.lblNota.Visible = false;
-            }
-            else if (personaActual.TipoPersona == Persona.TiposPersona.Profesor)
-            {
-                
+                this.cbAlumnos.Visible = false;
+                this.label1.Visible = false;
             }
 
             Modo = modo;
@@ -74,10 +72,26 @@ namespace UI.Desktop
             {
                 inscripcionActual = new AlumnoInscripcion();
             }
-            inscripcionActual.Condicion = this.txtCondicion.Text;
-            inscripcionActual.IDAlumno = (int)this.cbAlumnos.SelectedValue;
+
+            if (Session.Persona.TipoPersona==Persona.TiposPersona.Alumno)
+            {
+                inscripcionActual.IDAlumno =Session.Persona.ID;
+            }
+            else
+            {
+                inscripcionActual.IDAlumno = (int)this.cbAlumnos.SelectedValue;
+            }
+            
             inscripcionActual.IDCurso = (int)this.cbCurso.SelectedValue;
             inscripcionActual.Nota =  string.IsNullOrEmpty(this.txtNota.Text) ? default(int?) : int.Parse(this.txtNota.Text);
+            if (Session.Persona.TipoPersona == Persona.TiposPersona.Alumno)
+            {
+                inscripcionActual.Condicion = "Inscripto";
+            }
+            else
+            {
+                inscripcionActual.Condicion = this.txtCondicion.Text;
+            }
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -97,6 +111,7 @@ namespace UI.Desktop
             this.cbCurso.DataSource = cursos;
             this.cbCurso.SelectedIndex = cbCurso.FindStringExact(cursoInsc.IDMateria.ToString());
             this.txtCondicion.Text = inscripcionActual.Condicion.ToString();
+
             this.txtNota.Text = inscripcionActual.Nota.ToString();
 
         }
@@ -107,11 +122,22 @@ namespace UI.Desktop
             {
                 case ModoForm.Alta:
                 case ModoForm.Modificacion:
-                    if (Validar())
                     {
-                        GuardarCambios();
-                        Close();
-                    };
+                        if(Session.Persona.TipoPersona != Persona.TiposPersona.Alumno)
+                        {
+                            if (Validar())
+                            {
+                                GuardarCambios();
+                                Close();
+                            };
+                        }
+                        else
+                        {
+                            
+                            GuardarCambios();
+                            Close();
+                        }
+                    }
                     break;
                 case ModoForm.Baja:
                     //Eliminar();

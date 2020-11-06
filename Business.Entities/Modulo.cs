@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace Business.Entities
 {
-    public class Modulo : BusinessEntity 
+    public class Modulo : BusinessEntity
     {
-        private string _Descripcion;
+        public int IdModulo { get; set; }
+        public string DescModulo { get; set; }
 
-        public string Descripcion 
-        {
-            get { return _Descripcion; }
-            set { _Descripcion = value; }
-        }
-
+        public string Ejecuta { get; set; }
     }
 }

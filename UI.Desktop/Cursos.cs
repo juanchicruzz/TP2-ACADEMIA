@@ -10,11 +10,12 @@ using iTextSharp.text;
 
 namespace UI.Desktop
 {
-    public partial class Cursos : Form
+    public partial class Cursos : FormButtons
     {
         public Cursos()
         {
             InitializeComponent();
+            this.SetearPermisos("Cursos");
         }
 
         public void Listar()
@@ -66,14 +67,14 @@ namespace UI.Desktop
         {
             Listar();
         }
-        private void tsbNuevo_Click(object sender, EventArgs e)
+        public override void tsbNuevo_Click(object sender, EventArgs e)
         {
             CursoDesktop formCur = new CursoDesktop(ApplicationForm.ModoForm.Alta);
             formCur.ShowDialog();
             this.Listar();
         }
 
-        private void tsbEditar_Click(object sender, EventArgs e)
+        public override void tsbEditar_Click(object sender, EventArgs e)
         {
             if (this.dgvCursos.SelectedRows.Count > 0)
             {
@@ -82,9 +83,13 @@ namespace UI.Desktop
                 formCurso.ShowDialog();
                 this.Listar();
             }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila en la grilla para poder editar");
+            }
         }
 
-        private void tsbEliminar_Click(object sender, EventArgs e)
+        public override void tsbEliminar_Click(object sender, EventArgs e)
         {
             if (this.dgvCursos.SelectedRows.Count > 0)
             {
@@ -95,7 +100,7 @@ namespace UI.Desktop
             }
         }
 
-        private void tsbReporte_Click(object sender, EventArgs e)
+        public override void tsbExportar_Click(object sender, EventArgs e)
         {
             if (dgvCursos.Rows.Count > 0)
             {

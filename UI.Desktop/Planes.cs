@@ -15,11 +15,12 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Planes : Form
+    public partial class Planes : FormButtons
     {
         public Planes()
         {
             InitializeComponent();
+            this.SetearPermisos("Planes");
         }
 
         public void Listar()
@@ -65,13 +66,13 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void tsbNuevo_Click(object sender, EventArgs e)
+        public override void tsbNuevo_Click(object sender, EventArgs e)
         {
             PlanDesktop formPlan = new PlanDesktop(ApplicationForm.ModoForm.Alta);
             formPlan.ShowDialog();
             this.Listar();
         }
-        private void tsbEditar_Click(object sender, EventArgs e)
+        public override void tsbEditar_Click(object sender, EventArgs e)
         {
             if (this.dgvPlan.SelectedRows.Count > 0)
             {
@@ -80,8 +81,12 @@ namespace UI.Desktop
                 formPlan.ShowDialog();
                 this.Listar();
             }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila en la grilla para poder editar");
+            }
         }
-        private void tsbEliminar_Click(object sender, EventArgs e)
+        public override void tsbEliminar_Click(object sender, EventArgs e)
         {
             if (this.dgvPlan.SelectedRows.Count > 0)
             {
@@ -92,7 +97,7 @@ namespace UI.Desktop
             }
         }
 
-        private void tsbExportar_Click(object sender, EventArgs e)
+        public override void tsbExportar_Click(object sender, EventArgs e)
         {
             if (dgvPlan.Rows.Count > 0)
             {

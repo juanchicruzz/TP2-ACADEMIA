@@ -156,5 +156,10 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void btmPermisos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

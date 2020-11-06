@@ -26,6 +26,11 @@ namespace Business.Logic
                 throw ExcepcionManejada;
             }
         }
+
+        //public List<AlumnoInscripcion> GetAllAlumnos(int id)
+        //{
+        //   return inscripcionAdapter.GetAllAlumnos(id);
+        //}
         public AlumnoInscripcion GetOne(int ID)
         {
             AlumnoInscripcion inscripcion = inscripcionAdapter.GetOne(ID);
@@ -50,6 +55,16 @@ namespace Business.Logic
             {
                 throw ex;
             }
+        }
+
+        public void Update (AlumnoInscripcion inscripcionActual)
+        {
+            inscripcionAdapter.Update(inscripcionActual);
+        }
+
+        public List<AlumnoInscripcion> GetAllById(int id)
+        {
+            return inscripcionAdapter.GetAllById(id);
         }
 
         internal bool GetAlumnoInscriptoPorCurso(int idCurso)

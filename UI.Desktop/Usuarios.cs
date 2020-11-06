@@ -12,11 +12,12 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Usuarios : Form
+    public partial class Usuarios : FormButtons
     {
         public Usuarios()
         {
             InitializeComponent();
+            this.SetearPermisos("Usuarios");
         }
         public void Listar()
         {
@@ -52,14 +53,14 @@ namespace UI.Desktop
         {
             this.Close();
         }
-        private void tsbNuevo_Click_1(object sender, EventArgs e)
+        public override void tsbNuevo_Click(object sender, EventArgs e)
         {
             UsuarioDesktop formUsuario = new UsuarioDesktop(ApplicationForm.ModoForm.Alta);
             formUsuario.ShowDialog();
             this.Listar();
         }
 
-        private void tsbEditar_Click_1(object sender, EventArgs e)
+        public override void tsbEditar_Click(object sender, EventArgs e)
         {
             if (this.dgvUsuarios.SelectedRows.Count > 0)
             {
@@ -68,9 +69,13 @@ namespace UI.Desktop
                 formUsuario.ShowDialog();
                 this.Listar();
             }
+            else
+            {
+                MessageBox.Show("Seleccionar una fila en la grilla para poder editar");
+            }
         }
 
-        private void tsbEliminar_Click_1(object sender, EventArgs e)
+        public override void tsbEliminar_Click(object sender, EventArgs e)
         {
             if (this.dgvUsuarios.SelectedRows.Count > 0)
             {

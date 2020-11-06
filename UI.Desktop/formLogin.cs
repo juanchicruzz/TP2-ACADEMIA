@@ -31,6 +31,9 @@ namespace UI.Desktop
             {
                 this.DialogResult = DialogResult.OK;
                 Session.Usuario = usuario;
+                Personalogic logica = new Personalogic();
+                Session.Persona= logica.GetOne(Session.Usuario.IDPersona.Value);
+                
             }
             else
             {

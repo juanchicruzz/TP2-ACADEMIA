@@ -57,6 +57,10 @@ namespace UI.Desktop
             }
             finally
             {
+                if (Session.Persona.TipoPersona == Persona.TiposPersona.Alumno)
+                {
+                    dgvInscripciones.Visible = false;
+                }
             }
         }
         private void tsbNuevo_Click(object sender, EventArgs e)

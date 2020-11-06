@@ -48,6 +48,7 @@
             this.comboTipoPersona = new System.Windows.Forms.ComboBox();
             this.comboIdPlan = new System.Windows.Forms.ComboBox();
             this.dtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.btmPermisos = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // label1
@@ -220,11 +221,27 @@
             this.dtFechaNacimiento.Size = new System.Drawing.Size(200, 20);
             this.dtFechaNacimiento.TabIndex = 26;
             // 
+            // btmPermisos
+            // 
+            this.btmPermisos.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btmPermisos.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btmPermisos.IconColor = System.Drawing.Color.Black;
+            this.btmPermisos.IconSize = 16;
+            this.btmPermisos.Location = new System.Drawing.Point(238, 135);
+            this.btmPermisos.Name = "btmPermisos";
+            this.btmPermisos.Rotation = 0D;
+            this.btmPermisos.Size = new System.Drawing.Size(75, 23);
+            this.btmPermisos.TabIndex = 27;
+            this.btmPermisos.Text = "Permisos";
+            this.btmPermisos.UseVisualStyleBackColor = true;
+            this.btmPermisos.Click += new System.EventHandler(this.btmPermisos_Click);
+            // 
             // PersonaDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 170);
+            this.Controls.Add(this.btmPermisos);
             this.Controls.Add(this.dtFechaNacimiento);
             this.Controls.Add(this.comboIdPlan);
             this.Controls.Add(this.comboTipoPersona);
@@ -274,5 +291,6 @@
         private System.Windows.Forms.ComboBox comboTipoPersona;
         private System.Windows.Forms.ComboBox comboIdPlan;
         private System.Windows.Forms.DateTimePicker dtFechaNacimiento;
+        private FontAwesome.Sharp.IconButton btmPermisos;
     }
 }
